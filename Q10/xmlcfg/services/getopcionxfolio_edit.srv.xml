@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<service mode="prepared">
+<param name="folio0" type="int"/>
+<command><![CDATA[ 
+
+svc_bop_lee_opc_idd_paraeditar #folio0#
+
+ ]]></command>
+</service>

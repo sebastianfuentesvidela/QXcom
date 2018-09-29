@@ -1,0 +1,16 @@
+DELETE FROM tbop_vlz
+SET IDENTITY_INSERT tbop_vlz  ON
+INSERT INTO tbop_vlz( opc_fol, pct_fec_pcs_ctb, vlz_fec, vlz_cod_idd, vlz_vtl, vlz_dla, vlz_gam, vlz_veg, vlz_veg_pon, usr_cod, vlz_gam_pon, vlz_fec_prc, vlz_val_rzn_prm, vlz_val_eqv_crd, vlz_tot_val_rzn, vlz_dla_pon, vlz_dla_veg_vtl, vlz_dla_veg_spo, vlz_mnt_nmn, vlz_mon_nmn)
+ VALUES ( 21, '2006/08/28', '2006/08/31', 8, 51, 3.3246, 0.5424, 1.2411, 0, Null, 0.0002, Null, 19.1857, 253815.61, Null, 1814.6755, Null, Null, 65465, '13');
+INSERT INTO tbop_vlz( opc_fol, pct_fec_pcs_ctb, vlz_fec, vlz_cod_idd, vlz_vtl, vlz_dla, vlz_gam, vlz_veg, vlz_veg_pon, usr_cod, vlz_gam_pon, vlz_fec_prc, vlz_val_rzn_prm, vlz_val_eqv_crd, vlz_tot_val_rzn, vlz_dla_pon, vlz_dla_veg_vtl, vlz_dla_veg_spo, vlz_mnt_nmn, vlz_mon_nmn)
+ VALUES ( 24, '2006/08/28', '2006/08/31', 9, 52, -15101.1782, 59.3494, 16014.807, 13197.3924, Null, 0.0281, Null, 3755645.9391, 0, Null, -8243723.7535, Null, Null, 46145, '13');
+INSERT INTO tbop_vlz( opc_fol, pct_fec_pcs_ctb, vlz_fec, vlz_cod_idd, vlz_vtl, vlz_dla, vlz_gam, vlz_veg, vlz_veg_pon, usr_cod, vlz_gam_pon, vlz_fec_prc, vlz_val_rzn_prm, vlz_val_eqv_crd, vlz_tot_val_rzn, vlz_dla_pon, vlz_dla_veg_vtl, vlz_dla_veg_spo, vlz_mnt_nmn, vlz_mon_nmn)
+ VALUES ( 26, '2006/08/28', '2006/08/31', 10, 42, 29859.439, 72.9196, 16213.2275, 11779.3208, Null, 0.0345, Null, 4982243.5851, 0, Null, 16298476.1754, Null, Null, 46145, '13');
+INSERT INTO tbop_vlz( opc_fol, pct_fec_pcs_ctb, vlz_fec, vlz_cod_idd, vlz_vtl, vlz_dla, vlz_gam, vlz_veg, vlz_veg_pon, usr_cod, vlz_gam_pon, vlz_fec_prc, vlz_val_rzn_prm, vlz_val_eqv_crd, vlz_tot_val_rzn, vlz_dla_pon, vlz_dla_veg_vtl, vlz_dla_veg_spo, vlz_mnt_nmn, vlz_mon_nmn)
+ VALUES ( 57, '2006/08/28', '2006/08/31', 11, 15, 7392.9835, 43.8247, 2516.6501, 106.9172, Null, 0.0969, Null, 514148.9751, 5645, Null, 4035386.1272, Null, Null, 9875.654, '13');
+INSERT INTO tbop_vlz( opc_fol, pct_fec_pcs_ctb, vlz_fec, vlz_cod_idd, vlz_vtl, vlz_dla, vlz_gam, vlz_veg, vlz_veg_pon, usr_cod, vlz_gam_pon, vlz_fec_prc, vlz_val_rzn_prm, vlz_val_eqv_crd, vlz_tot_val_rzn, vlz_dla_pon, vlz_dla_veg_vtl, vlz_dla_veg_spo, vlz_mnt_nmn, vlz_mon_nmn)
+ VALUES ( 58, '2006/08/28', '2006/08/31', 12, 15, 48716.2048, 289.8041, 17032.154, 830.3575, Null, 0.0967, Null, 3402706.4991, 6545, Null, 26591253.2461, Null, Null, 65464.56, '13');
+INSERT INTO tbop_vlz( opc_fol, pct_fec_pcs_ctb, vlz_fec, vlz_cod_idd, vlz_vtl, vlz_dla, vlz_gam, vlz_veg, vlz_veg_pon, usr_cod, vlz_gam_pon, vlz_fec_prc, vlz_val_rzn_prm, vlz_val_eqv_crd, vlz_tot_val_rzn, vlz_dla_pon, vlz_dla_veg_vtl, vlz_dla_veg_spo, vlz_mnt_nmn, vlz_mon_nmn)
+ VALUES ( 59, '2006/08/28', '2006/08/31', 13, 15, 48701.6666, 289.3462, 17070.147, 837.627, Null, 0.0965, Null, 3406692.292, 6545, Null, 26583317.6781, Null, Null, 65464.56, '13');
+INSERT INTO tbop_vlz( opc_fol, pct_fec_pcs_ctb, vlz_fec, vlz_cod_idd, vlz_vtl, vlz_dla, vlz_gam, vlz_veg, vlz_veg_pon, usr_cod, vlz_gam_pon, vlz_fec_prc, vlz_val_rzn_prm, vlz_val_eqv_crd, vlz_tot_val_rzn, vlz_dla_pon, vlz_dla_veg_vtl, vlz_dla_veg_spo, vlz_mnt_nmn, vlz_mon_nmn)
+ VALUES ( 61, '2006/08/28', '2006/08/31', 14, 15, 51287735.356, 421599.0981, 43124916.6526, 43226046.2067, Null, 0.0921, Null, 3489557009.2712, 5555, Null, 27994897466.7138, Null, Null, 100000000, '13');

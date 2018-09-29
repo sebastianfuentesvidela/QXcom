@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<service mode="transacsql">
+<command><![CDATA[ 
+
+SELECT frs_idd kiph, frs_msg, frs_ctx FROM  frases
+			WHERE (frs_act = 'corre')
+
+ ]]></command>
+</service>

@@ -1,0 +1,2 @@
+DELETE FROM tbop_rpe
+SET IDENTITY_INSERT tbop_rpe  ON

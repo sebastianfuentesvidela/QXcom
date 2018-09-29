@@ -1,0 +1,167 @@
+package data_layer;
+
+
+import java.sql.*;
+import java.text.DateFormat;
+import java.text.Format;
+import java.text.SimpleDateFormat;
+
+import data_layer.ServiceCatalog.cParameter;
+import data_layer.ServiceCatalog.eParameterType;
+
+
+public final class cSQLExecutor 
+{
+	private Connection con = null;
+	private Statement stmt = null;
+	private ResultSet rs = null;
+		
+	public cSQLExecutor()
+	{
+		
+	}
+	
+	public cSQLExecutor(String sConnectionURL)
+	{
+		Connect(sConnectionURL);
+	}
+	
+	public boolean Connect(String sConnectionURL)
+	{
+		boolean bRetVal = true;
+		
+		try
+		{
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+			con = DriverManager.getConnection(sConnectionURL);
+			System.out.println("DB connected.");
+		}
+		catch (Exception e)
+		{
+			System.out.print(e.getMessage());
+			bRetVal = false;
+
+		}
+		return bRetVal;
+	}
+	
+	public boolean Disconnect()
+	{
+		boolean bRetVal = false;
+		
+		try 
+		{	con.close();
+			con = null;
+			bRetVal = true;
+		} catch (SQLException e)
+		{
+			bRetVal = false;
+		}
+		
+		return bRetVal;
+	}
+	
+	
+	public boolean PrepService(cServiceEx ServiceEx)
+	{
+		boolean bRetVal = false;
+		String sSQL = ServiceEx.Service.sCommand;
+		
+		for (int i=0; i<ServiceEx.Service.aParameter.length; i++)
+		{
+			cParameter ParamDef = ServiceEx.Service.aParameter[i];
+
+			String sValue = ServiceEx.hmVars.get(ParamDef.sName);
+			if ( sValue == null )
+			{	ServiceEx.sbLog.append("<error>required parameter " + ParamDef.sName + " is missing.</error>\r\n" );
+				return false;
+			}
+			
+			String sRepName = "@" + ParamDef.sName;
+			switch (ParamDef.eType)
+			{
+				case NUMBER:
+					break;
+				case DATE:
+					sValue = "'" + sValue +"'";
+					break;
+				case STRING:	
+					sValue = "'" + sValue +"'";
+					break;
+			}
+			
+			sSQL = sSQL.replace(sRepName, sValue);
+		}
+		
+		ServiceEx.sPrepCommand = sSQL;
+		return true;
+	}
+	
+	public boolean ExecService(cServiceEx ServiceEx)
+	{
+		boolean bRetVal = false;
+		String sSQL = ServiceEx.sPrepCommand;
+		
+		System.out.println(sSQL);
+		
+		try
+		{	if ( con == null )
+				Connect(ServiceEx.sConnectionURL);
+
+			stmt = con.createStatement();
+			//con.setAutoCommit(false);
+			
+			rs = stmt.executeQuery(sSQL);
+			
+			ResultSetMetaData rsmd = rs.getMetaData();
+			int iColCount = rsmd.getColumnCount();
+			System.out.println("columns:");
+			System.out.println(iColCount);
+			
+			String sColName = null;
+
+			Format formatter = new SimpleDateFormat("yyyyMMdd hh:mm:ss");
+			
+			while (rs.next())
+			{
+				System.out.println("processing row");
+				ServiceEx.sbReply.append("<row>\r\n");
+				for (int i = 1; i<=iColCount;i++)
+				{
+					sColName = rsmd.getColumnName(i);
+					ServiceEx.sbReply.append("\t<");
+					ServiceEx.sbReply.append(sColName);
+					ServiceEx.sbReply.append(">");
+					
+					if ( rsmd.getColumnType(i) == java.sql.Types.TIMESTAMP )
+					{
+						ServiceEx.sbReply.append(formatter.format(rs.getDate(i)));
+					}
+					else
+					{
+						ServiceEx.sbReply.append(rs.getString(i));
+					}
+					
+					ServiceEx.sbReply.append("</");
+					ServiceEx.sbReply.append(rsmd.getColumnName(i));
+					ServiceEx.sbReply.append(">\r\n");
+				}
+				ServiceEx.sbReply.append("</row>\r\n");
+
+			}
+			rs.close();
+			stmt.close();
+			bRetVal = true;
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+			bRetVal = false;
+			ServiceEx.sbLog.append("<error>");
+			ServiceEx.sbLog.append(e.getMessage());
+			ServiceEx.sbLog.append("</error>");
+		}
+		
+		return bRetVal;
+	}
+}

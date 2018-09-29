@@ -1,0 +1,5 @@
+Resultado.....
+SSELECT Cod_Opes.cod_ope, Cod_Opes.CLASIFICACION, Cod_Opes.Familia
+FROM Cod_Opes;
+YINSERT INTO Cod_Opes ( cod_ope, CLASIFICACION, Familia )
+VALUES ('#1#', '#2#',  '#3#')

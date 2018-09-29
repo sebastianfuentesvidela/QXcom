@@ -1,0 +1,11 @@
+ÿU<parameters>
+	<param name="CURRENT_USER">null</param>
+	<param name="MonedaCto">13</param>
+	<param name="Cartera" />
+	<param name="Estilo">1</param>
+	<param name="FechaVen" />
+	<param name="MonedaCam">999</param>
+	<param name="TipoOperacion">1</param>
+	<param name="MontoCto">0</param>
+	<param name="Folio">0</param>
+</parameters>

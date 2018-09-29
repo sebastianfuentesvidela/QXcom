@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<REG_FXG>
+	<tiporegistro>LISTAESCENARIOS</tiporegistro>
+	<usagemode>PROCLIST</usagemode>
+	<showtempl>xslt/listaescenarios.xslt</showtempl>
+	<errortempl>xslt/bop_errorbop.xslt</errortempl>
+	<notonget param="filtra" service="nodefinido"/>
+	<formboton localname="imprime" onclick="window.print();">
+		<rendtempl>xslt/listvan.xslt</rendtempl>
+		<titimage></titimage>
+		<titulo>Imprimir</titulo>
+		<cssClass>clsBoton</cssClass>
+		<style></style>
+	</formboton>
+	<head service="getheadparams" param="header">
+		<headelem localname="fecha_negocio">
+			<localtipo>D</localtipo>
+			<htmlname>FProceso</htmlname>
+			<rotulo>Fecha Proceso</rotulo>
+			<htmldefaultval></htmldefaultval>
+			<readelem sqlname="fec_pct_pnd" />
+			<htmlcontrol>
+				<tipo>hidden</tipo>
+			</htmlcontrol>
+		</headelem>
+	</head>
+	<listas servicio="listaescenarios">
+		<columset setid="Set_0">
+			<colelem localname="id_escenario">
+				<localtipo>N</localtipo>
+				<htmlname>folio_opcion</htmlname>
+				<dispformat>c:8</dispformat>
+				<readelem sqlname="esc_idd" />
+				<htmlcontrol>
+					<tipo>anchor</tipo>
+					<cssClass>bonito</cssClass>
+					<href>javascript: showEscenario(#id#, '#nom#');</href>
+					<href1>javascript: alert('#id#' + '#nom#');</href1>
+					<hrefid name="id" sqlname="esc_idd"/>
+					<hrefid name="nom" sqlname="esc_nom"/>
+					<target>_self</target>
+				</htmlcontrol> 
+			</colelem>
+			<colelem localname="escenario">
+				<localtipo>T</localtipo>
+				<htmlname>nomEscenario</htmlname>
+				<dispformat></dispformat>
+				<readelem sqlname="esc_nom" />
+			</colelem>
+			<colelem localname="fecha_ven">
+				<localtipo>D</localtipo>
+				<htmlname>FechVen</htmlname>
+				<dispformat>dmy</dispformat>
+				<readelem sqlname="pct_fec_pcs_ctb" />
+			</colelem>
+		</columset>
+	</listas>
+</REG_FXG>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<record returnvalue="0">
+	<recordset setid="Set_0">
+		<fields>
+			<field name="pva_cod_val" type="3" />
+			<field name="pva_gls_crt" type="129" />
+			<field name="pva_des" type="200" />
+			<field name="pva_gls_igl" type="129" />
+		</fields>
+		<row>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>CHEQUEcito              </pva_gls_crt>
+			<pva_des>CHEQUE </pva_des>
+			<pva_gls_igl>1                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_val>3</pva_cod_val>
+			<pva_gls_crt>VALE VISTA                    </pva_gls_crt>
+			<pva_des>VALE VISTA</pva_des>
+			<pva_gls_igl>1                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_val>4</pva_cod_val>
+			<pva_gls_crt>VALE CAMARA                   </pva_gls_crt>
+			<pva_des>VALE CAMARA</pva_des>
+			<pva_gls_igl>0                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_val>7</pva_cod_val>
+			<pva_gls_crt>TRANS 24                      </pva_gls_crt>
+			<pva_des>TRANS 24</pva_des>
+			<pva_gls_igl>1                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_val>8</pva_cod_val>
+			<pva_gls_crt>TRANS 48                      </pva_gls_crt>
+			<pva_des>TRANS 48</pva_des>
+			<pva_gls_igl>2                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_val>9</pva_cod_val>
+			<pva_gls_crt>CHEQUE DOLAR                  </pva_gls_crt>
+			<pva_des>CHEQUE DOLAR</pva_des>
+			<pva_gls_igl>2                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_val>10</pva_cod_val>
+			<pva_gls_crt>TRANS HOY                     </pva_gls_crt>
+			<pva_des>TRANS HOY</pva_des>
+			<pva_gls_igl>0                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_val>15</pva_cod_val>
+			<pva_gls_crt>OTRAS OFICINAS                </pva_gls_crt>
+			<pva_des>OTRAS OFICINAS</pva_des>
+			<pva_gls_igl>0                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_val>17</pva_cod_val>
+			<pva_gls_crt>TRANS 72                      </pva_gls_crt>
+			<pva_des>TRANS 72</pva_des>
+			<pva_gls_igl>3                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_val>21</pva_cod_val>
+			<pva_gls_crt>CUENTA CORRIENTE              </pva_gls_crt>
+			<pva_des>CUENTA CORRIENTE</pva_des>
+			<pva_gls_igl>0                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_val>28</pva_cod_val>
+			<pva_gls_crt>CUENTA AHORRO                 </pva_gls_crt>
+			<pva_des>CUENTA AHORRO</pva_des>
+			<pva_gls_igl>0                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_val>41</pva_cod_val>
+			<pva_gls_crt>SPAV T+0                      </pva_gls_crt>
+			<pva_des>SPAV T+0</pva_des>
+			<pva_gls_igl>0                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_val>42</pva_cod_val>
+			<pva_gls_crt>SPAV T+1                      </pva_gls_crt>
+			<pva_des>SPAV T+1</pva_des>
+			<pva_gls_igl>1                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_val>43</pva_cod_val>
+			<pva_gls_crt>SPAV T+2                      </pva_gls_crt>
+			<pva_des>SPAV T+2</pva_des>
+			<pva_gls_igl>2                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_val>44</pva_cod_val>
+			<pva_gls_crt>SPAV T+3                      </pva_gls_crt>
+			<pva_des>SPAV T+3</pva_des>
+			<pva_gls_igl>3                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_val>45</pva_cod_val>
+			<pva_gls_crt>SPAV T+4                      </pva_gls_crt>
+			<pva_des>SPAV T+4</pva_des>
+			<pva_gls_igl>4                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_val>46</pva_cod_val>
+			<pva_gls_crt>SPAV T+5                      </pva_gls_crt>
+			<pva_des>SPAV T+5</pva_des>
+			<pva_gls_igl>5                   </pva_gls_igl>
+		</row>
+	</recordset>
+	<recordset setid="Set_1">
+		<fields>
+			<field name="pva_cod_val" type="3" />
+			<field name="pva_gls_crt" type="129" />
+			<field name="pva_des" type="200" />
+			<field name="pva_gls_igl" type="129" />
+		</fields>
+		<row>
+			<pva_cod_val>1</pva_cod_val>
+			<pva_gls_crt>Americana                     </pva_gls_crt>
+			<pva_des>Americana</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>Europea                       </pva_gls_crt>
+			<pva_des>Europea</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_val>3</pva_cod_val>
+			<pva_gls_crt>Otra                          </pva_gls_crt>
+			<pva_des>Otra</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+	</recordset>
+	<recordset setid="Set_2">
+		<fields>
+			<field name="pva_cod_val" type="3" />
+			<field name="pva_gls_crt" type="129" />
+			<field name="pva_des" type="200" />
+			<field name="pva_gls_igl" type="129" />
+		</fields>
+		<row>
+			<pva_cod_val>1</pva_cod_val>
+			<pva_gls_crt>Posicion                      </pva_gls_crt>
+			<pva_des>Posicion</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>Intermediacion                </pva_gls_crt>
+			<pva_des>Intermediacion</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+	</recordset>
+</record>

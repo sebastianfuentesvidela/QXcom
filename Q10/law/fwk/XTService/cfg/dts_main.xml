@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<datasources>
+	<datasource name="SQL_1" type="SQL" >
+		<driver_class>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver_class>
+		<connection_url>jdbc:sqlserver://hpdv6000:1533;databaseName=xserver;integratedSecurity=true</connection_url>
+		<description>MS SQL 2005 Express en LX</description>
+	</datasource>
+</datasources>

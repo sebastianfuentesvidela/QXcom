@@ -1,0 +1,29 @@
+package data_layer;
+
+import java.net.Socket;
+import java.util.HashMap;
+
+import data_layer.ServiceCatalog.cService;
+
+public final class cServiceEx {
+
+	int iID;
+	cService Service;
+	Socket s;
+	byte [] byteBuffer;
+	StringBuilder sbRequest;
+	StringBuilder sbReply;
+	StringBuilder sbLog;
+	String sUser;
+	String sConnectionURL;
+	HashMap<String, String> hmVars = null;
+	
+	
+	cServiceEx()
+	{
+		hmVars = new HashMap<String, String>();
+	}
+	
+	
+	
+}

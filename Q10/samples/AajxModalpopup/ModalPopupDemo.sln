@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "D:\...\ModalPopupDemo\", "D:\Users\Kelum\Desktop\codeproject_template\ModalPopupDemo", "{D7632D4E-6ABF-4705-B8AC-3CE3D6707944}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.VirtualPath = "/ModalPopupDemo"
+		Debug.AspNetCompiler.PhysicalPath = "D:\Users\Kelum\Desktop\codeproject_template\ModalPopupDemo\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\ModalPopupDemo\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/ModalPopupDemo"
+		Release.AspNetCompiler.PhysicalPath = "D:\Users\Kelum\Desktop\codeproject_template\ModalPopupDemo\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\ModalPopupDemo\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "50646"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D7632D4E-6ABF-4705-B8AC-3CE3D6707944}.Debug|.NET.ActiveCfg = Debug|.NET
+		{D7632D4E-6ABF-4705-B8AC-3CE3D6707944}.Debug|.NET.Build.0 = Debug|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

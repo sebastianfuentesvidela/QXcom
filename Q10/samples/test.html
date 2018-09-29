@@ -1,0 +1,8 @@
+<script>
+
+	var spn = new RegExp('(id\=")([^"]*)(")', 'g');
+	var tx = '     If GetStr<br />Val(obElem.rqName & <span id=\"und:uno\" value=\"und:uno\" >TEXTOOO</span>, <br />qstr, QAns) Then ms = QAns <br /><span id=\"und:dos:uno\" style=\"color: maroon;\" onblur=\"formattedNumber(this, 2);\" onkeypress=\"return numbersOnly(this, event, true);\"> Else nodate = True</span><br /> If GetStrVal(obElem.rqName & \"Year\", qstr, <br />QAns) Then yr = QAns Else nodate = True<br />'
+	for (i=0; i<tx.match(spn).length;i++) {
+		alert(tx.match(spn)[i]);
+	}
+</script>

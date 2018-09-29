@@ -1,0 +1,99 @@
+public class XML1Serializer implements MessageSerializer 
+{
+	/*
+	 <?xml version="1.0" encoding="ISO-8859-1" ?>
+<service name="traeme la cosa" reply_format="SFV">
+ <parameters>
+  <param name="CURRENT_USER">peter</param>
+  <param name="spectid">47</param>
+ </parameters>
+</service>
+	 */
+
+	private boolean _bHasParameters = false;
+	private String _sQuote = "\"";
+	
+	private StringBuilder sb = null;
+	
+	public XML1Serializer()
+	{
+		sb = new StringBuilder();
+	}
+
+	public void BeginXML()
+	{
+		BeginXML("ISO-8859-1");
+	}
+
+	public void BeginXML(String sEncoding)
+	{
+		sb.append("<?xml version=\"1.0\" encoding=\"");
+		sb.append(sEncoding);
+		sb.append("\" ?>\r\n");
+	}
+
+	public void EndXML()
+	{
+		
+	}
+	
+	public void AddColDef(String name, String type) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void AddDataRow() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void CloseResultSet() {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void EndService() 
+	{
+		if (_bHasParameters)
+			sb.append("</parameters>\r\n");
+		sb.append("</service>\r\n");
+	}
+
+	public void OpenResultSet(String name) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void BeginService(String sName, String sReplyFormat) {
+		sb.append("<service name=");
+		sb.append(_sQuote);
+		sb.append(sName);
+		sb.append(_sQuote);
+		sb.append(" reply_format=");
+		sb.append(_sQuote);
+		sb.append(sReplyFormat);
+		sb.append(_sQuote);
+		sb.append(" >\r\n");
+	}
+
+	public void Parameter(String sName, String sValue) 
+	{
+		if (!_bHasParameters)
+		{	sb.append("<parameters>\r\n");
+			_bHasParameters = true;
+		}
+		sb.append("<param name=");
+		sb.append(_sQuote);
+		sb.append(sName);
+		sb.append(_sQuote);
+		sb.append(">");
+		sb.append(sValue);
+		sb.append("</param>\r\n");
+		
+	}
+
+	
+	
+}

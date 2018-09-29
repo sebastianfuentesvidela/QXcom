@@ -1,0 +1,64 @@
+DELETE FROM tbop_pra
+SET IDENTITY_INSERT tbop_pra  ON
+INSERT INTO tbop_pra( pra_cod_tbl, pra_des_tbl)
+ VALUES ( 'acn_svt', 'Acción Superderivatives');
+INSERT INTO tbop_pra( pra_cod_tbl, pra_des_tbl)
+ VALUES ( 'cls_opc', 'Clase Opción');
+INSERT INTO tbop_pra( pra_cod_tbl, pra_des_tbl)
+ VALUES ( 'elo_opc', 'Estilo de Opción');
+INSERT INTO tbop_pra( pra_cod_tbl, pra_des_tbl)
+ VALUES ( 'est_bac_spo', 'Estado Operación BAC Spot');
+INSERT INTO tbop_pra( pra_cod_tbl, pra_des_tbl)
+ VALUES ( 'est_cdt', 'Estado Cuadratura');
+INSERT INTO tbop_pra( pra_cod_tbl, pra_des_tbl)
+ VALUES ( 'est_lim', 'Estado Límite');
+INSERT INTO tbop_pra( pra_cod_tbl, pra_des_tbl)
+ VALUES ( 'est_mdp', 'Estado Motor de Pagos');
+INSERT INTO tbop_pra( pra_cod_tbl, pra_des_tbl)
+ VALUES ( 'est_opc', 'Estado de la Opción');
+INSERT INTO tbop_pra( pra_cod_tbl, pra_des_tbl)
+ VALUES ( 'est_pcg', 'Estado Proceso Carga');
+INSERT INTO tbop_pra( pra_cod_tbl, pra_des_tbl)
+ VALUES ( 'est_pcs_ctb', 'Estado Proceso Contable');
+INSERT INTO tbop_pra( pra_cod_tbl, pra_des_tbl)
+ VALUES ( 'est_rpe', 'Estado del Reporte');
+INSERT INTO tbop_pra( pra_cod_tbl, pra_des_tbl)
+ VALUES ( 'est_spo', 'Estado Spot');
+INSERT INTO tbop_pra( pra_cod_tbl, pra_des_tbl)
+ VALUES ( 'fac_can_uno', 'Factores Moneda Canasta 1');
+INSERT INTO tbop_pra( pra_cod_tbl, pra_des_tbl)
+ VALUES ( 'mdo_pag_cbr', 'Medio de Pago/Cobro');
+INSERT INTO tbop_pra( pra_cod_tbl, pra_des_tbl)
+ VALUES ( 'mod_cum', 'Modalidad de Cumplimiento');
+INSERT INTO tbop_pra( pra_cod_tbl, pra_des_tbl)
+ VALUES ( 'msj_ing_mvt', 'Mensaje Ingreso Movimiento');
+INSERT INTO tbop_pra( pra_cod_tbl, pra_des_tbl)
+ VALUES ( 'mtv_rch_cdt', 'Motivo Rechazo Cuadratura');
+INSERT INTO tbop_pra( pra_cod_tbl, pra_des_tbl)
+ VALUES ( 'obj_opc', 'Objetivo de la Opción');
+INSERT INTO tbop_pra( pra_cod_tbl, pra_des_tbl)
+ VALUES ( 'org_mov', 'Origen del Movimiento');
+INSERT INTO tbop_pra( pra_cod_tbl, pra_des_tbl)
+ VALUES ( 'org_ope', 'Origen de la Operación');
+INSERT INTO tbop_pra( pra_cod_tbl, pra_des_tbl)
+ VALUES ( 'tip_acn_pag_cbr', 'Tipo Accion Pago_Cobro');
+INSERT INTO tbop_pra( pra_cod_tbl, pra_des_tbl)
+ VALUES ( 'tip_cnp', 'Tipo Contraparte');
+INSERT INTO tbop_pra( pra_cod_tbl, pra_des_tbl)
+ VALUES ( 'tip_ctr', 'Tipo Cartera');
+INSERT INTO tbop_pra( pra_cod_tbl, pra_des_tbl)
+ VALUES ( 'tip_doc', 'Tipo de Documento');
+INSERT INTO tbop_pra( pra_cod_tbl, pra_des_tbl)
+ VALUES ( 'tip_ing_pcg', 'Tipo Ingreso Proceso Carga');
+INSERT INTO tbop_pra( pra_cod_tbl, pra_des_tbl)
+ VALUES ( 'tip_mon', 'Tipo Moneda');
+INSERT INTO tbop_pra( pra_cod_tbl, pra_des_tbl)
+ VALUES ( 'tip_opc', 'Tipo de Opción');
+INSERT INTO tbop_pra( pra_cod_tbl, pra_des_tbl)
+ VALUES ( 'tip_ope', 'Tipo de Operación');
+INSERT INTO tbop_pra( pra_cod_tbl, pra_des_tbl)
+ VALUES ( 'tip_ope_pag_cbr', 'Tipo de Operación para Pago_Cobro');
+INSERT INTO tbop_pra( pra_cod_tbl, pra_des_tbl)
+ VALUES ( 'tip_pcg', 'Tipo Proceso Carga');
+INSERT INTO tbop_pra( pra_cod_tbl, pra_des_tbl)
+ VALUES ( 'tip_rpe', 'Tipo de Reporte');

@@ -1,0 +1,15 @@
+
+public interface MessageSerializer {
+
+	void BeginXML();
+	void EndXML();
+	void BeginService(String sName, String sRetFormat, String sCaching);
+	void EndService();
+	void Parameter(String sName);
+	void OpenResultSet(String sName);
+	void CloseResultSet();
+	void AddColDef(String sName, String sType);
+	void AddDataRow();
+	void ResultValue(String sName,String sValue);
+	
+}

@@ -1,0 +1,34 @@
+package data_layer;
+
+import java.io.IOException;
+
+public class XTStart {
+
+	public static void main(String[] args)
+	{
+		
+		String sCurDir = System.getProperty("user.dir");
+		String sServicesCFG = sCurDir + "/cfg/pkg_pruebas.xml";
+	
+		System.out.println("XTServer v 0.1 starting");
+		System.out.println(sCurDir);
+		System.out.println("");
+		
+				
+		System.out.println("java.version: " +  System.getProperty("java.runtime.version"));
+		
+		System.out.println(sServicesCFG);
+
+		ServiceCatalog.LoadPackage ( sServicesCFG );
+		ServiceCatalog.DumpCatalog();
+		
+		Server.Start();
+		
+		try {
+			System.in.read();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<package name="pruebas">
+	
+	<service name="TEST_SELECT" type="SQL" cacheable="true">
+		
+		<datasource name="SQL_1" /><param name="tipo_usuario" type="string" length="30"/>
+		<sql>select * from usuarios where tipo_usuario=@tipo_usuario;select count(*) as numero from usuarios where tipo_usuario=@tipo_usuario</sql>
+	</service>
+
+	<service name="lista_dos" type="SQL" cacheable="true">
+		<datasource name="SQL_1" />
+		<sql>
+			SELECT frs_idd kiph, frs_msg, frs_ctx FROM  frases
+			WHERE (frs_act = 'corre')
+		</sql>
+	</service>
+
+	<service name="lista_uno" type="SQL" cacheable="true">
+		<datasource name="SQL_1" />
+		<sql>
+			SELECT pva_cod_val AS uno, pva_des AS dos
+			FROM  tbop_pra_val
+			WHERE (pva_cod_tbl = 'est_opc')
+			ORDER BY pva_des
+		</sql>
+	</service>
+
+	<service name="TEST_INSERT" type="SQL">
+		<datasource name="SQL_1"/>
+		<param name="rut" type="string" length="15"/>
+		<param name="nombre" type="string" length="50"/>
+		<param name="apellido" type="string" length="50"/>
+		<param name="fecha_nac" type="date"/>
+		<param name="tipo_usuario" type="string" length="30"/>
+		<sql>insert into usuarios (rut,nombre,apellido,fecha_nac,tipo_usuario) values ( @rut,@nombre,@apellido,@fecha_nac,@tipo_usuario )</sql>
+	</service>
+
+	<service name="consultacarteradia" type="SQL">
+		<datasource name="SQL_1"/>
+		<param name="pva_tip_ctr" type="int"/>
+		<param name="pva_tip_ope" type="int"/>
+		<param name="pva_tip_opc" type="int"/>
+		<param name="pva_elo_opc" type="int"/>
+		<param name="pva_mod_cum" type="int"/>
+		<param name="opc_fec_ngc" type="date"/>
+		<param name="opc_fec_vct" type="date"/>
+		<param name="opc_fec_efc" type="date"/>
+		<param name="contraparte" type="int"/>
+		<param name="nom_tad" type="string" length="105"/>
+		<sql>svc_bop_cns_ctr_opc_dia @pva_tip_ctr, @pva_tip_ope, @pva_tip_opc, @pva_elo_opc, @pva_mod_cum, @opc_fec_ngc, @opc_fec_vct, @opc_fec_efc, @contraparte, @nom_tad </sql>
+	</service>
+
+	<service name="getpralistgen" type="SQL">
+		<datasource name="SQL_1"/>
+		<sql>svc_bop_lst_prm</sql>
+	</service>
+
+	<service name="listaescenarios" type="SQL">
+		<datasource name="SQL_1"/>
+		<sql>svc_bop_lst_esc_dia</sql>
+	</service>
+
+	<service name="getheadparams" type="SQL">
+		<datasource name="SQL_1"/>
+		<sql>svc_bop_lee_prm_dia</sql>
+	</service>
+
+	<service name="getopcionxfolio" type="SQL">
+		<datasource name="SQL_1"/>
+		<param name="folio0" type="int"/>
+		<sql>svc_bop_lee_opc_idd @folio0 </sql>
+	</service>
+
+	<service name="TEST_UPDATE" type="SQL">
+		<datasource name="SQL_1"/>
+		<param name="rut" type="string" length="15"  key="true"/>
+		<param name="nombre" type="string" length="50"/>
+		<param name="apellido" type="string" length="50"/>
+		<param name="fecha_nac" type="date"/>
+		<param name="tipo_usuario" type="string" length="30"/>
+		<sql>update usuarios
+			set nombre = @nombre,
+			apellido = @apellido,
+			fecha_nac = @fecha_nac,
+			tipo_usuario = @tipo_usuario
+			where rut = @rut</sql>
+	</service>
+	
+	<service name="TEST_JAVA" type="XJAVA">
+		<class>data_layer.Libreria</class>
+		<method>UnMetodo</method>
+		<param name="p1" type="string" length="15"/>
+	</service>
+	
+	
+</package>

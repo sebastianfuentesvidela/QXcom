@@ -1,0 +1,2 @@
+SELECT frs_idd kiph, frs_msg, frs_ctx FROM  frases
+			WHERE (frs_act = 'corre')

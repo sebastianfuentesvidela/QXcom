@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<record returnvalue="0">
+	<recordset setid="Set_0">
+		<fields>
+			<field name="fec_pct" type="135" />
+			<field name="fec_pct_abt" type="135" />
+			<field name="fec_pct_pre" type="135" />
+			<field name="fec_pct_aut" type="135" />
+			<field name="fec_pct_cie" type="135" />
+			<field name="fec_pct_pnd" type="135" />
+			<field name="fec_pct_pass" type="135" />
+			<field name="fec_pct_con" type="135" />
+			<field name="msg" type="200" />
+			<field name="max_esc" type="3" />
+			<field name="est_neg" type="3" />
+			<field name="est_val" type="3" />
+		</fields>
+		<row>
+			<fec_pct>28/08/2006</fec_pct>
+			<fec_pct_abt></fec_pct_abt>
+			<fec_pct_pre></fec_pct_pre>
+			<fec_pct_aut></fec_pct_aut>
+			<fec_pct_cie></fec_pct_cie>
+			<fec_pct_pnd>28/08/2006</fec_pct_pnd>
+			<fec_pct_pass>27/08/2006 16:35:19</fec_pct_pass>
+			<fec_pct_con>31/08/2006</fec_pct_con>
+			<msg>Cierre Mes Especial</msg>
+			<max_esc>119</max_esc>
+			<est_neg>2</est_neg>
+			<est_val>0</est_val>
+		</row>
+	</recordset>
+</record>

@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<REG_FXG>
+	<tiporegistro>CARTVIGENTE</tiporegistro>
+	<usagemode>FILTERLIST</usagemode>
+	<showtempl>xslt/bop_cons_cart_vig.xslt</showtempl>
+	<errortempl>xslt/bop_errorbop.xslt</errortempl>
+	<notonget param="filtra" service="nodefinido"/>
+	<defaultboton servicio="listacarteradia">
+		<rendtempl>xslt/showcardia.xslt</rendtempl>
+		<titimage></titimage>
+		<titulo>Filtra</titulo>
+		<cssClass>clsBoton</cssClass>
+		<style>width: 50px</style>
+	</defaultboton>
+	<formboton localname="Limpia" onclick="CleanCartera()">
+		<titimage></titimage>
+		<titulo>Limpia</titulo>
+		<cssClass>clsBoton</cssClass>
+		<style></style>
+	</formboton>
+	<formboton localname="export" onclick="ExportaCarteraVigente()">
+		<rendtempl>xslt/listvan.xslt</rendtempl>
+		<titimage></titimage>
+		<titulo>Exporta</titulo>
+		<cssClass>clsBoton</cssClass>
+		<style></style>
+	</formboton>
+	<formboton localname="imprime" onclick="window.print();">
+		<rendtempl>xslt/listvan.xslt</rendtempl>
+		<titimage></titimage>
+		<titulo>Imprime</titulo>
+		<cssClass>clsBoton</cssClass>
+		<style></style>
+	</formboton>
+	<grupos servicio="getpralistgen">
+		<grupelem name="CboMonedas" setname="tip_mon"></grupelem>
+		<grupelem name="CboTipoOperacion" setname="tip_ope"></grupelem>
+		<grupelem name="CboTipoOpcion" setname="tip_opc"></grupelem>
+		<grupelem name="CboTipoContraparte" setname="tip_cnp"></grupelem>
+		<grupelem name="CboClaseOpcion" setname="cls_opc"></grupelem>
+		<grupelem name="CboEstilos" setname="elo_opc"></grupelem>
+		<grupelem name="CboEstadosOpcion" setname="est_opc"></grupelem>
+		<grupelem name="CboCartera" setname="tip_ctr"></grupelem>
+		<grupelem name="CboModalidad" setname="mod_cum"></grupelem>
+		<grupelem name="CboMedioPago" setname="mdo_pag_cbr"></grupelem>
+		<grupelem name="CboObjetivoOpc" setname="obj_opc"></grupelem>
+		<grupelem name="CboOperadores">0:Primero|1:Segundo</grupelem>
+		<grupelem name="CboContraparte">1:Directa|2:Indirecta</grupelem>
+	</grupos>
+	<head service="getheadparams" param="header">
+		<headelem localname="fecha_negocio">
+			<localtipo>D</localtipo>
+			<htmlname>FProceso</htmlname>
+			<rotulo>Fecha Proceso</rotulo>
+			<htmldefaultval></htmldefaultval>
+			<readelem sqlname="fec_pct_pnd" />
+			<htmlcontrol>
+				<tipo>hidden</tipo>
+			</htmlcontrol>
+		</headelem>
+		<headelem localname="estado_negocio">
+			<localtipo>N</localtipo>
+			<htmlname>EstadoNeg</htmlname>
+			<rotulo>Estado Negocio</rotulo>
+			<htmldefaultval>0</htmldefaultval>
+			<readelem sqlname="est_neg" />
+			<htmlcontrol>
+				<tipo>hidden</tipo>
+			</htmlcontrol>
+		</headelem>
+		<headelem localname="estado_escenario">
+			<localtipo>N</localtipo>
+			<htmlname>hidEstEsc</htmlname>
+			<rotulo>Estado Escenario</rotulo>
+			<htmldefaultval>0</htmldefaultval>
+			<readelem sqlname="est_val" />
+			<htmlcontrol>
+				<tipo>hidden</tipo>
+			</htmlcontrol>
+		</headelem>
+		<headelem localname="last_escenario">
+			<localtipo>N</localtipo>
+			<htmlname>LastScenar</htmlname>
+			<rotulo></rotulo>
+			<htmldefaultval>0</htmldefaultval>
+			<readelem sqlname="max_esc" />
+			<htmlcontrol>
+				<tipo>hidden</tipo>
+			</htmlcontrol>
+		</headelem>
+		<headelem localname="fechareporte">
+			<localtipo>C</localtipo>
+			<htmlname>hoyreporte</htmlname>
+			<rotulo></rotulo>
+			<htmldefaultval use="hoydia"/>
+			<htmlcontrol>
+				<tipo>text</tipo>
+				<numformat>hh:mm</numformat>
+				<cssClass></cssClass>
+				<grpsource></grpsource>
+				<onclick></onclick>
+				<ongotfocus></ongotfocus>
+			</htmlcontrol>
+		</headelem>
+	</head>
+	<elementos>
+		<fieldelem localname="tipo_cartera">
+			<localtipo>N</localtipo>
+			<htmlname>selTipoCartera</htmlname>
+			<rotulo>Moneda Operacion</rotulo>
+			<htmldefaultval>0</htmldefaultval>
+			<paramname>pva_tip_ctr</paramname>
+			<readelem sqlname="pva_tip_ctr" />
+			<htmlcontrol>
+				<tipo>combo</tipo>
+				<style>HEIGHT: 18px; WIDTH: 180px</style>
+				<cssClass>COMBO1</cssClass>
+				<grpsource put-lead-elem="Todas">CboCartera</grpsource>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="tipo_ope">
+			<localtipo>N</localtipo>
+			<htmlname>selTipOpe</htmlname>
+			<rotulo>Tipo Operación</rotulo>
+			<htmldefaultval>0</htmldefaultval>
+			<paramname>pva_tip_ope</paramname>
+			<readelem sqlname="pva_tip_ope" />
+			<htmlcontrol>
+				<tipo>combo</tipo>
+				<style>HEIGHT: 18px; WIDTH: 107px</style>
+				<cssClass>COMBO1</cssClass>
+				<grpsource put-lead-elem="Todos">CboTipoOperacion</grpsource>
+				<onclick></onclick>
+				<ongotfocus></ongotfocus>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="tipo_opcion">
+			<localtipo>N</localtipo>
+			<htmlname>selTipOpcion</htmlname>
+			<rotulo>Tipo Opción</rotulo>
+			<htmldefaultval>0</htmldefaultval>
+			<paramname>pva_tip_opc</paramname>
+			<readelem sqlname="pva_tip_opc" />
+			<htmlcontrol>
+				<tipo>combo</tipo>
+				<style>HEIGHT: 18px; WIDTH: 107px</style>
+				<cssClass>COMBO1</cssClass>
+				<grpsource put-lead-elem="Todos">CboTipoOpcion</grpsource>
+				<onclick></onclick>
+				<ongotfocus></ongotfocus>
+				<onchange></onchange>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="estilo_opcion">
+			<localtipo>N</localtipo>
+			<htmlname>selEstOpcion</htmlname>
+			<rotulo>Estilo Opción</rotulo>
+			<htmldefaultval>0</htmldefaultval>
+			<paramname>pva_elo_opc</paramname>
+			<readelem sqlname="pva_elo_opc" />
+			<htmlcontrol>
+				<tipo>combo</tipo>
+				<style>HEIGHT: 18px; WIDTH: 107px</style>
+				<cssClass>COMBO1</cssClass>
+				<grpsource put-lead-elem="Todos">CboEstilos</grpsource>
+				<onclick></onclick>
+				<ongotfocus></ongotfocus>
+				<onchange></onchange>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="modalidad_cum">
+			<localtipo>N</localtipo>
+			<htmlname>selModalid</htmlname>
+			<rotulo>Modalidad Cumplimiento</rotulo>
+			<htmldefaultval>0</htmldefaultval>
+			<paramname>pva_mod_cum</paramname>
+			<readelem sqlname="pva_mod_cum" />
+			<htmlcontrol>
+				<tipo>combo</tipo>
+				<style>HEIGHT: 18px; WIDTH: 107px</style>
+				<cssClass>COMBO1</cssClass>
+				<grpsource put-lead-elem="Todas">CboModalidad</grpsource>
+				<onclick></onclick>
+				<ongotfocus></ongotfocus>
+				<onchange></onchange>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="fecha_neg">
+			<localtipo>D</localtipo>
+			<htmlname>FechaNeg</htmlname>
+			<htmldefaultval></htmldefaultval>
+			<rotulo>Fecha Negociación</rotulo>
+			<paramname>opc_fec_ngc</paramname>
+			<readelem sqlname="opc_fec_ngc"/>
+			<htmlcontrol>
+				<tipo>DateCbo</tipo>
+				<cssClass>bonito</cssClass>
+				<style>HEIGHT: 18px; WIDTH: 107px</style>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="fecha_vence">
+			<localtipo>D</localtipo>
+			<htmlname>FechaVenc</htmlname>
+			<htmldefaultval></htmldefaultval>
+			<rotulo>Fecha Vencimianto</rotulo>
+			<paramname>opc_fec_vct</paramname>
+			<readelem sqlname="opc_fec_vct"/>
+			<htmlcontrol>
+				<tipo>DateCbo</tipo>
+				<cssClass>bonito</cssClass>
+				<style>HEIGHT: 18px; WIDTH: 107px</style>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="fecha_efect">
+			<localtipo>D</localtipo>
+			<htmlname>FechaEfec</htmlname>
+			<htmldefaultval></htmldefaultval>
+			<rotulo>Fecha Efectiva</rotulo>
+			<paramname>opc_fec_efc</paramname>
+			<readelem sqlname="opc_fec_efc"/>
+			<htmlcontrol>
+				<tipo>DateCbo</tipo>
+				<cssClass>bonito</cssClass>
+				<style>HEIGHT: 18px; WIDTH: 107px</style>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="trader_name">
+			<localtipo>C</localtipo>
+			<htmlname>selOperador</htmlname>
+			<htmldefaultval></htmldefaultval>
+			<rotulo>Operador</rotulo>
+			<paramname>nom_tad</paramname>
+			<readelem sqlname="nom_tad"/>
+			<htmlcontrol>
+				<tipo>combo</tipo>
+				<style>HEIGHT: 18px; width: 110px;</style>
+				<cssClass>COMBO1</cssClass>
+				<grpsource put-lead-elem="Todos">CboOperadores</grpsource>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="contraparte">
+			<localtipo>N</localtipo>
+			<htmlname>selContraparte</htmlname>
+			<rotulo>escenario</rotulo>
+			<htmldefaultval>0</htmldefaultval>
+			<paramname>contraparte</paramname>
+			<readelem sqlname="contraparte" />
+			<htmlcontrol>
+				<tipo>combo</tipo>
+				<style>HEIGHT: 18px; WIDTH: 220px</style>
+				<cssClass>COMBO1</cssClass>
+				<grpsource put-lead-elem="0|Todos">CboContraparte</grpsource>
+				<onclick></onclick>
+				<ongotfocus></ongotfocus>
+				<onchange></onchange>
+			</htmlcontrol>
+		</fieldelem>
+	</elementos>
+	<listas servicio="consultacarteradia">
+		<columset setid="Set_0">
+			<boton localname="procesa" onclick="ProcesaListLiqs(0, 'procesa');">
+				<rendtempl>xslt/bop_res_proc_aprob_comps_comp_stat.xslt</rendtempl>
+				<usecol name="aprliqcomp" servicio="apruebaliquidacionopcion"/>
+				<usecol name="rchliqcomp" servicio="rechazaliquidacionopcion"/>
+				<titimage></titimage>
+				<titulo>Ejecuta</titulo>
+				<cssClass>clsBoton</cssClass>
+				<style></style>
+			</boton>
+			<colelem localname="aprliqcomp">
+				<localtipo>N</localtipo>
+				<htmlname>aprliqcomp</htmlname>
+				<dispformat>c:8</dispformat>
+				<readelem sqlname="opc_fol" />
+				<htmlcontrol>
+					<tipo>check</tipo>
+					<condicion>intrin_positive</condicion>
+					<cssClass>bonito</cssClass>
+					<style></style>
+					<onclick>OptionCheck(this, 'aprliqcomp', 'rchliqcomp')</onclick>
+					<ongotfocus></ongotfocus>
+				</htmlcontrol>
+			</colelem>
+			<colelem localname="botenviampprima">
+				<localtipo>N</localtipo>
+				<htmlname>botprima</htmlname>
+				<dispformat></dispformat>
+				<readelem sqlname="opc_fol" />
+				<htmlcontrol>
+					<tipo>boton</tipo>
+					<titulo>Documentos</titulo>
+					<cssClass>clsBoton</cssClass>
+					<style>HEIGHT: 18px; WIDTH: 68px</style>
+					<hrefid sqlname="opc_fol"/>
+					<onclick>document.location='bop_emision_docums.asp?folio=#id#'</onclick>
+					<ongotfocus></ongotfocus>
+				</htmlcontrol>
+			</colelem>
+			<colelem localname="voucher" onclick="MuestraDoc('voucher')">
+				<localtipo>N</localtipo>
+				<htmlname>botVoucher</htmlname>
+				<dispformat></dispformat>
+				<readelem sqlname="opc_fol" />
+				<htmlcontrol>
+					<tipo>boton</tipo>
+					<titulo>Voucher</titulo>
+					<cssClass>clsBoton</cssClass>
+					<style>HEIGHT: 18px; WIDTH: 50px</style>
+					<hrefid sqlname="opc_fol"/>
+					<onclick>MuestraDocOpc('voucher', #id#)</onclick>
+					<ongotfocus></ongotfocus>
+				</htmlcontrol>
+			</colelem>
+			<colelem localname="fax">
+				<localtipo>N</localtipo>
+				<htmlname>botFax</htmlname>
+				<dispformat></dispformat>
+				<readelem sqlname="opc_fol" />
+				<htmlcontrol>
+					<tipo>boton</tipo>
+					<titulo>Fax</titulo>
+					<cssClass>clsBoton</cssClass>
+					<style>HEIGHT: 18px; WIDTH: 30px</style>
+					<hrefid sqlname="opc_fol"/>
+					<onclick>MuestraDocOpc('fax', #id#)</onclick>
+					<ongotfocus></ongotfocus>
+				</htmlcontrol>
+			</colelem>
+			<colelem localname="contrato">
+				<localtipo>N</localtipo>
+				<htmlname>botctto</htmlname>
+				<dispformat></dispformat>
+				<readelem sqlname="opc_fol" />
+				<htmlcontrol>
+					<tipo>boton</tipo>
+					<titulo>Contrato</titulo>
+					<cssClass>clsBoton</cssClass>
+					<style>HEIGHT: 18px; WIDTH: 50px</style>
+					<hrefid sqlname="opc_fol"/>
+					<onclick>MuestraDocOpc('contrato', #id#)</onclick>
+					<ongotfocus></ongotfocus>
+				</htmlcontrol>
+			</colelem>
+			<colelem localname="folio_opcion">
+				<localtipo>N</localtipo>
+				<htmlname>folio_opcion</htmlname>
+				<dispformat>c:8</dispformat>
+				<readelem sqlname="opc_fol" />
+				<htmlcontrol>
+					<tipo>anchor</tipo>
+					<cssClass>bonito</cssClass>
+					<href>operator?bop_crea_opvan=#id#</href>
+					<hrefid name="id" sqlname="opc_fol"/>
+					<target>_self</target>
+				</htmlcontrol> 
+			</colelem>
+			<colelem localname="estadoop">
+				<localtipo>T</localtipo>
+				<htmlname>estopc</htmlname>
+				<dispformat></dispformat>
+				<readelem sqlname="est_opc" />
+			</colelem>
+			<colelem localname="estadouser">
+				<localtipo>T</localtipo>
+				<htmlname>estusr</htmlname>
+				<dispformat></dispformat>
+				<readelem sqlname="cod_usr_ing_mvt" />
+			</colelem>
+			<colelem localname="tipooper">
+				<localtipo>T</localtipo>
+				<htmlname>tipope</htmlname>
+				<dispformat></dispformat>
+				<readelem sqlname="tip_ope" />
+			</colelem>
+			<colelem localname="tipoopci">
+				<localtipo>T</localtipo>
+				<htmlname>tipopci</htmlname>
+				<dispformat></dispformat>
+				<readelem sqlname="tip_opc" />
+			</colelem>
+			<colelem localname="tipocart">
+				<localtipo>T</localtipo>
+				<htmlname>tipocart</htmlname>
+				<dispformat></dispformat>
+				<readelem sqlname="tip_ctr" />
+			</colelem>
+			<colelem localname="estilo">
+				<localtipo>T</localtipo>
+				<htmlname></htmlname>
+				<dispformat></dispformat>
+				<readelem sqlname="elo_opc" />
+			</colelem>
+			<colelem localname="trader">
+				<localtipo>T</localtipo>
+				<htmlname></htmlname>
+				<dispformat></dispformat>
+				<readelem sqlname="nom_tad" />
+			</colelem>
+			<colelem localname="rut_cont">
+				<localtipo>T</localtipo>
+				<htmlname>Glosa</htmlname>
+				<dispformat>rut</dispformat>
+				<readelem sqlname="full_rut_cli" />
+			</colelem>
+			<colelem localname="nom_cont">
+				<localtipo>T</localtipo>
+				<htmlname>Glosa</htmlname>
+				<dispformat></dispformat>
+				<readelem sqlname="opc_nom_cnp_bco" />
+			</colelem>
+			<colelem localname="monejer">
+				<localtipo>T</localtipo>
+				<htmlname></htmlname>
+				<dispformat></dispformat>
+				<readelem sqlname="mon_eje" />
+			</colelem>
+			<colelem localname="tcamej">
+				<localtipo>N</localtipo>
+				<htmlname></htmlname>
+				<dispformat>n2</dispformat>
+				<readelem sqlname="opc_tip_cmb_eje" />
+			</colelem>
+			<colelem localname="montoej">
+				<localtipo>N</localtipo>
+				<htmlname></htmlname>
+				<dispformat>n2</dispformat>
+				<readelem sqlname="opc_mnt_me_ref" />
+			</colelem>
+			<colelem localname="monepri">
+				<localtipo>T</localtipo>
+				<htmlname></htmlname>
+				<dispformat></dispformat>
+				<readelem sqlname="mon_pri" />
+			</colelem>
+			<colelem localname="montopri">
+				<localtipo>N</localtipo>
+				<htmlname></htmlname>
+				<dispformat>n2</dispformat>
+				<readelem sqlname="mnt_pag_prm" />
+			</colelem>
+			<colelem localname="moneliq">
+				<localtipo>T</localtipo>
+				<htmlname></htmlname>
+				<dispformat></dispformat>
+				<readelem sqlname="mon_liq" />
+			</colelem>
+			<colelem localname="modalidcum">
+				<localtipo>T</localtipo>
+				<htmlname></htmlname>
+				<dispformat></dispformat>
+				<readelem sqlname="mod_cum" />
+			</colelem>
+			<colelem localname="montoliq">
+				<localtipo>N</localtipo>
+				<htmlname></htmlname>
+				<dispformat>n2</dispformat>
+				<readelem sqlname="mnt_liq_opc" />
+			</colelem>
+			<colelem localname="valorintrin">
+				<localtipo>N</localtipo>
+				<htmlname></htmlname>
+				<dispformat>n0</dispformat>
+				<readelem sqlname="opc_val_isc_opc" />
+			</colelem>
+			<colelem localname="fecha_neg">
+				<localtipo>D</localtipo>
+				<htmlname>FechNeg</htmlname>
+				<dispformat>dmy</dispformat>
+				<readelem sqlname="opc_fec_ngc" />
+			</colelem>
+			<colelem localname="fecha_ven">
+				<localtipo>D</localtipo>
+				<htmlname>FechVen</htmlname>
+				<dispformat>dmy</dispformat>
+				<readelem sqlname="opc_fec_vct" />
+			</colelem>
+			<condiciones>
+				<condelem localname="estado_uno">
+					<test>todosasi</test>
+					<field name="pva_cod_val">13</field>
+					<mensaje>La Cartera no puede quedar vacia</mensaje>
+				</condelem>
+				<condelem localname="estado_dos">
+					<test>todosasi</test>
+					<field name="pva_cod_val">999</field>
+					<mensaje>La Cartera no puede quedar vacia</mensaje>
+				</condelem>
+				<condelem localname="intrin_negorzero">
+					<test>espar</test>
+					<field name="pva_cod_val" />
+					<mensaje>La Cartera no puede quedar vacia</mensaje>
+				</condelem>
+				<condelem localname="intrin_positive">
+					<test>todosasi</test>
+					<field name="pva_cod_tbl">Monedas</field>
+					<field name="pva_cod_val">999</field>
+					<mensaje>La Cartera no puede quedar vacia</mensaje>
+				</condelem>
+			</condiciones>
+		</columset>
+		<columset setid="Set_1">
+			<colelem localname="fecha_negocio">
+				<localtipo>D</localtipo>
+				<htmlname>fecNeg</htmlname>
+				<dispformat>dmy</dispformat>
+				<readelem sqlname="pct_fec_pcs_ctb" />
+			</colelem>
+		</columset>
+	</listas>
+</REG_FXG>

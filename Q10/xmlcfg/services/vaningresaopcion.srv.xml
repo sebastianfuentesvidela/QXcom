@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<service mode="prepared">
+<param name="opc_fol" type="int"/>
+<param name="context/user" type="string" length="150"/>
+<param name="pva_tip_ctr" type="int"/>
+<param name="pva_cls_opc" type="int"/>
+<param name="full_rut_cli" type="string" length="15"/>
+<param name="opc_nom_cnp_bco" type="string" length="150"/>
+<param name="opc_cod_cnp_bco" type="int"/>
+<param name="pva_tip_cnp" type="int"/>
+<param name="pva_tip_ope" type="int"/>
+<param name="pva_tip_opc" type="int"/>
+<param name="pva_elo_opc" type="int"/>
+<param name="pva_mod_cum" type="int"/>
+<param name="opc_mnt_me_ref" type="numeric"/>
+<param name="cod_me_ref" type="int"/>
+<param name="opc_tip_cmb_eje" type="numeric"/>
+<param name="opc_pri_de_eje" type="numeric"/>
+<param name="opc_prc_de_eje" type="numeric"/>
+<param name="opc_tip_cmb_ref" type="numeric"/>
+<param name="opc_pri_ref" type="numeric"/>
+<param name="opc_fec_ngc" type="date"/>
+<param name="opc_fec_vct" type="date"/>
+<param name="opc_hrr_eje" type="string" length="10"/>
+<param name="opc_lzn_eje" type="string" length="10"/>
+<param name="cod_usr_acz" type="string" length="150"/>
+<param name="pva_mdo_pag_cbr_prm" type="int"/>
+<param name="pva_mdo_pag_cbr_opc" type="int"/>
+<param name="mnt_pag_prm" type="numeric"/>
+<param name="cod_mon_prm" type="string" length="15"/>
+<param name="cod_mon_liq" type="string" length="15"/>
+<param name="mnt_liq_opc" type="numeric"/>
+<command><![CDATA[ 
+
+sva_bop_crn_nvo_opc (#opc_fol#, '#context/user#', #pva_tip_ctr#, #pva_cls_opc#, '#full_rut_cli#', '#opc_nom_cnp_bco#',
+	 #opc_cod_cnp_bco#, #pva_tip_cnp#, #pva_tip_ope#, #pva_tip_opc#, #pva_elo_opc#, #pva_mod_cum#, 
+	#opc_mnt_me_ref#, '#cod_me_ref#', #opc_tip_cmb_eje#, #opc_pri_de_eje#, #opc_prc_de_eje#, 
+	#opc_tip_cmb_ref#, #opc_pri_ref#, '#opc_fec_ngc#', '#opc_fec_vct#', '#opc_hrr_eje#', 
+	'#opc_lzn_eje#', '', '#cod_usr_acz#', #pva_mdo_pag_cbr_prm#, #pva_mdo_pag_cbr_opc#, 
+	#mnt_pag_prm#, '#cod_mon_prm#', '#cod_mon_liq#', #mnt_liq_opc#)
+
+
+ ]]></command>
+</service>

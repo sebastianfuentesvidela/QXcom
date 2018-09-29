@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<datasources>
+	<datasource name="SQL_1" type="SQL" >
+		<driver_class>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver_class>
+		<connection_url>jdbc:sqlserver://localhost;databaseName=mdd_bop_opc</connection_url>
+		<user>sa</user>
+		<password></password>
+		<description>MS SQL 2005 Express en LX</description>
+	</datasource>
+	<nodatasource name="SQL_2" type="SQL" >
+		<driver_class>"net.sourceforge.jtds.jdbc.Driver"</driver_class>
+		<connection_url>"jdbc:jtds:sqlserver://localhost/mdd_bop_opc;user=sa;password="</connection_url>
+		<description>MS SQL 2000 en CS</description>
+	</nodatasource>
+</datasources>

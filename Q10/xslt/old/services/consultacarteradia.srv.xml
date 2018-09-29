@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<service mode="prepared">
+<param name="pva_tip_ctr" type="int"/>
+<param name="pva_tip_ope" type="int"/>
+<param name="pva_tip_opc" type="int"/>
+<param name="pva_elo_opc" type="int"/>
+<param name="pva_mod_cum" type="int"/>
+<param name="opc_fec_ngc" type="date"/>
+<param name="opc_fec_vct" type="date"/>
+<param name="opc_fec_efc" type="date"/>
+<param name="contraparte" type="string" length="150"/>
+<param name="nom_tad" type="string" length="150"/>
+<command><![CDATA[ 
+
+svc_bop_cns_ctr_opc_dia #pva_tip_ctr#, #pva_tip_ope#, #pva_tip_opc#, #pva_elo_opc#, #pva_mod_cum#, 
+	'#opc_fec_ngc#', '#opc_fec_vct#', '#opc_fec_efc#', '#contraparte#', '#nom_tad#'
+
+ ]]></command>
+</service>

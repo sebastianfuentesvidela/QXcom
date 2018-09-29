@@ -1,0 +1,75 @@
+package data_layer;
+
+import java.io.*;
+import java.net.*;
+import java.security.*;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+
+
+public class SocketServer 
+
+{
+
+  private static int port=5500;
+  private static int maxConnections=0;
+  private static int iIDGen = 0;
+  
+  // Listen for incoming connections and handle them
+
+  public static void Start() 
+  {
+    int i=0;
+
+    try
+    {
+    	BlockingQueue<cServiceEx> queue	= new ArrayBlockingQueue<cServiceEx>(100);
+    	
+    	Worker W [] = new Worker[5];
+    	
+    	for (int j=0; j<W.length; j++)
+    	{
+    		W[j] = new Worker(queue,j+1);
+    		new Thread(W[j]).start();
+    	}
+    	    	
+		ServerSocket listener = new ServerSocket(port);
+		Socket s;
+		
+		while( true ) //(i++ < maxConnections) || (maxConnections == 0))
+		{
+		
+		  s = listener.accept();
+		    
+		  cServiceEx ServiceEx = new cServiceEx();
+		  ServiceEx.s = s;
+		  iIDGen++;
+		  ServiceEx.iID = iIDGen;
+		  queue.put(ServiceEx);
+		   
+		
+		}
+    }
+	catch (IOException ioe) 
+	{
+	  System.out.println("IOException on socket listen: " + ioe);
+	  ioe.printStackTrace();
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+  
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+

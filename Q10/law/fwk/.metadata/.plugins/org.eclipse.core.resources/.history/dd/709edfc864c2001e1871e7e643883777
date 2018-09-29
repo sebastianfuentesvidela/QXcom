@@ -1,0 +1,47 @@
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.Socket;
+import java.net.SocketAddress;
+import java.net.SocketTimeoutException;
+import java.net.UnknownHostException;
+
+
+public class Tester {
+
+	/**
+	 * @param args
+	 */
+		
+	
+	public static void main(String[] args)
+	{
+			ServiceClient sc = new ServiceClient();
+	
+			XML1Message msg = new XML1Message();
+			
+			msg.BeginXML();
+			
+			msg.BeginService("TEST_SELECT", "XML1");
+			msg.Context("tester", "thisuser", null);
+			msg.Parameter("tipo_usuario", "ADM");
+			msg.EndService();
+			
+		
+			for (int i=1;i<2;i++)
+			{
+				sc.Connect("localhost",5500);
+				sc.sRequest = msg.ToString();
+				sc.Execute();
+				System.out.println(sc.sReply);
+				sc.Close();
+			}
+
+	}
+	
+
+	
+}
+	
+

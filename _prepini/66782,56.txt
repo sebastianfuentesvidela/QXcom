@@ -1,0 +1,2 @@
+DELETE FROM tbop_cdt_opc
+SET IDENTITY_INSERT tbop_cdt_opc  ON

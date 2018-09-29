@@ -1,0 +1,60 @@
+	public void Service(String sServiceName)
+	{
+		sbRequest.append("<S name=\"");
+		sbRequest.append(sServiceName);
+		sbRequest.append("\">\r\n");
+	}
+		
+	public void Parameter(String sName, String sValue)
+	{
+		sbRequest.append("<P name=\"");
+		sbRequest.append(sName);
+		sbRequest.append("\">");
+		sbRequest.append(sValue);
+		sbRequest.append("</P>\r\n");
+	}
+	
+	public void BeginTable( String sName, int iNumCols, String [] asColName )
+	{
+		sbRequest.append("<T name=\">");
+		sbRequest.append(sName);
+		sbRequest.append("\" ");
+		sbRequest.append("ncol=\"");
+		sbRequest.append("iNumCols");
+		sbRequest.append("\">\r\n");
+		
+	}
+	
+	public void EndTable(String sName)
+	{
+		sbRequest.append("ET:");
+		sbRequest.append(sName);
+		sbRequest.append("\n");
+	}
+	
+	public void AddRow(String [] aValue)
+	{
+		if ( aValue.length != _iColNumber )
+			System.out.println();
+		_iCurrentRow++;
+		sbRequest.append("R[");
+		sbRequest.append(_iCurrentRow);
+		sbRequest.append("]:");
+
+		for (int i=0; i<_iColNumber; i++ )
+		{
+			sbRequest.append(aValue[i].trim());
+			sbRequest.append("\t");
+		}
+		sbRequest.append("\n");
+
+	}
+	
+	public String getString(String sName)
+	{
+		String sToken = "S:[" + sName.length() + "]=";
+		
+		int iBegin = sReply.indexOf(sToken);
+		int iEnd = sReply.indexOf("S",iBegin);
+		return(sReply.substring(iBegin, iEnd));
+	}

@@ -1,0 +1,13 @@
+
+public interface XMLFormat {
+
+	void OpenService(String sName, String sRetFormat, String sCaching);
+	void CloseService();
+	void Parameter(String sName);
+	void OpenResultSet(String sName);
+	void CloseResultSet();
+	void AddColDef(String sName, String sType);
+	void AddDataRow();
+	void ResultValue(String sName,String sValue);
+	
+}

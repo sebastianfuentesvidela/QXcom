@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="law/fwk/t/src/|law/fwk/Tester/src/|law/fwk/XTService/src/" kind="src" path=""/>
+	<classpathentry kind="src" path="law/fwk/t/src"/>
+	<classpathentry kind="src" path="law/fwk/Tester/src"/>
+	<classpathentry kind="src" path="law/fwk/XTService/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="law/fwk/Tester/bin"/>
+</classpath>

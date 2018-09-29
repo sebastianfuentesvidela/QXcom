@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+
+<package name="pruebas">
+	
+	<service name="TEST_SELECT" type="SQL" cacheable="true">
+		<param name="tipo_usuario" type="string" length="30"/>
+		<sql>select * from t_usuarios where tipo_usuario={tipo_usuario}</sql>
+	</service>
+
+	<service name="TEST_INSERT" type="SQL">
+		<param name="prut" type="string" length="15"/>
+		<param name="pnombre" type="string" length="50"/>
+		<param name="papellido" type="string" length="50"/>
+		<param name="pfecha_nac" type="date"/>
+		<param name="ptipo_usuario" type="string" length="30"/>
+		<sql>
+			insert into t_usuarios
+			(rut,nombre,apellido,fecha_nac,tipo_usuario)
+			values
+			( {prut},{pnombre},{papellido},{pfecha_nac},{ptipo_usuario} )
+		</sql>
+	</service>
+
+	<service name="TEST_UPDATE" type="SQL">
+		<param name="prut" type="string" length="15"  key="true"/>
+		<param name="pnombre" type="string" length="50"/>
+		<param name="papellido" type="string" length="50"/>
+		<param name="pfecha_nac" type="date"/>
+		<param name="ptipo_usuario" type="string" length="30"/>
+		<sql>
+			update t_usuarios
+			set nombre = {pnombre},
+			apellido = {papellido},
+			fecha_nac = {pfecha_nac},
+			tipo_usuario = {ptipo_usuario}
+			where rut = {prut}
+		</sql>
+	</service>
+</package>

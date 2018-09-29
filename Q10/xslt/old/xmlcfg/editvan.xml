@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<REG_FXG>
+	<tiporegistro>VAN</tiporegistro>
+	<usagemode>INGRESO</usagemode>
+	<onget param="folio" service="getopcionxfolio"/>
+	<edittempl>xslt/editvan.xslt</edittempl>
+	<errortempl>xslt/bop_errorbop.xslt</errortempl>
+	<imageerr>img/miss.gif</imageerr>
+	<defaultboton servicio="VANingresaopcion" procmode="redirpointer">
+		<rendtempl>xslt/showvan.xslt</rendtempl>
+		<outredirect>ingreso1.asp?folio=#1#</outredirect>
+		<titimage></titimage>
+		<titulo>Crea Opción</titulo>
+		<cssClass>bonito</cssClass>
+		<style></style>
+	</defaultboton>
+	<formboton localname="Limpia" onclick="CleanForm()">
+		<rendtempl>xslt/listvan.xslt</rendtempl>
+		<titimage></titimage>
+		<titulo>Limpia Formulario</titulo>
+		<cssClass>bonito</cssClass>
+		<style></style>
+	</formboton>
+	<grupos servicio="getpralistgen">
+		<grupelem name="CboMonedas">13:USD|999:CLP|142:EUR</grupelem>
+		<grupelem name="CboTipoOperacion" setid="0">0:Usual|1:Especial</grupelem>
+		<grupelem name="CboEstilos" setid="1">0:Normal|1:Rápido|2:Embalao</grupelem>
+		<grupelem name="CboCosos" setname="tip_ope">0:Normal|1:Rápido|2:Embalao</grupelem>
+		<grupelem name="CboOtros" servicio="srvOtros"></grupelem>
+	</grupos>
+	<elementos>
+		<fieldelem localname="nro_opc">
+			<localtipo>N</localtipo>
+			
+			<htmlname>Folio</htmlname><rotulo>Folio Opción</rotulo>
+			<htmldefaultval>0</htmldefaultval>
+			<paramname>opc_nro_opc</paramname>
+			<readelem sqlname="opc_nro_opc" 
+				biass="0" reformat="NoZero" />
+			<htmlcontrol>
+				<tipo>hidden</tipo>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="tip_ope">
+			<localtipo>N</localtipo>
+			<htmlname>TipoOperacion</htmlname>
+			<rotulo>Tipo Operación</rotulo>
+			<htmldefaultval>1</htmldefaultval>
+			<paramname>opc_tip_ope</paramname>
+			<readelem sqlname="opc_tip_ope" 
+				biass="0" reformat="NoZero" />
+			<htmlcontrol>
+				<tipo>combo</tipo>
+				<style>width: 80px;</style>
+				<cssClass>bonito</cssClass>
+				<grpsource put-lead-elem="no">CboTipoOperacion</grpsource>
+				<onclick>Activate(this)</onclick>
+				<ongotfocus></ongotfocus>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="est_opc">
+			<localtipo>N</localtipo>
+			<htmlname>Estilo</htmlname>
+			<rotulo>Estilo</rotulo>
+			<htmldefaultval>1</htmldefaultval>
+			<paramname>opc_est_opc</paramname>
+			<readelem sqlname="opc_est_opc" 
+				biass="0" reformat="NoZero" />
+			<htmlcontrol>
+				<tipo>combo</tipo>
+				<style>width: 70px;</style>
+				<cssClass>bonito</cssClass>
+				<grpsource put-lead-elem="no">CboEstilos</grpsource>
+				<onclick>Activate(this)</onclick>
+				<ongotfocus></ongotfocus>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="mon_cto">
+			<localtipo>N</localtipo>
+			<htmlname>MonedaCto</htmlname>
+			<rotulo>Moneda Contrato</rotulo>
+			<htmldefaultval>13</htmldefaultval>
+			<paramname>opc_mon_cto</paramname>
+			<readelem sqlname="opc_mon_cto" 
+				biass="0" reformat="NoZero" />
+			<htmlcontrol>
+				<tipo>combo</tipo>
+				<style>width: 50px;</style>
+				<cssClass>bonito</cssClass>
+				<grpsource>CboMonedas</grpsource>
+				<onclick>Activate(this)</onclick>
+				<ongotfocus></ongotfocus>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="mto_cto">
+			<localtipo>N</localtipo>
+			<htmlname>MontoCto</htmlname>
+			<rotulo>Monto Propuesto</rotulo>
+			<htmldefaultval>0</htmldefaultval>
+			<paramname>opc_mto_cto</paramname>
+			<readelem sqlname="opc_mto_cto" 
+				biass="0" reformat="NoZero" />
+			<htmlcontrol>
+				<tipo>text</tipo>
+				<maxlen>12</maxlen>
+				<style>width: 90px;</style>
+				<cssClass>bonito</cssClass>
+				<numformat>n2</numformat>
+				<grpsource></grpsource>
+				<onclick></onclick>
+				<ongotfocus></ongotfocus>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="mon_cmb">
+			<localtipo>N</localtipo>
+			<htmlname>MonedaCam</htmlname>
+			<rotulo>Moneda Contrapartida</rotulo>
+			<htmldefaultval>999</htmldefaultval>
+			<paramname>opc_mon_cmb</paramname>
+			<readelem sqlname="opc_mon_cmb" 
+				biass="0" reformat="NoZero" />
+			<htmlcontrol>
+				<tipo>combo</tipo>
+				<style>width: 50px;</style>
+				<cssClass>bonito</cssClass>
+				<grpsource>CboMonedas</grpsource>
+				<onclick>Activate(this)</onclick>
+				<ongotfocus></ongotfocus>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="fec_ven">
+			<localtipo>D</localtipo>
+			<htmlname>FechaVen</htmlname>
+			<htmldefaultval></htmldefaultval>
+			<rotulo>Fecha Vencimiento</rotulo>
+			<paramname>opc_fec_ven</paramname>
+			<readelem sqlname="opc_fec_ven"/>
+			<htmlcontrol>
+				<tipo>DateCbo</tipo>
+				<cssClass>bonito</cssClass>
+				<style>user-input: disabled;</style>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="nom_car">
+			<localtipo>C</localtipo>
+			<htmlname>Cartera</htmlname>
+			<rotulo>Portfolio</rotulo>
+			<htmldefaultval></htmldefaultval>
+			<paramname>opc_nom_car</paramname>
+			<readelem sqlname="opc_nom_car"/>
+			<htmlcontrol>
+				<tipo>text</tipo>
+				<maxlen>100</maxlen>
+				<style>width: 100px;</style>
+				<cssClass>bonito</cssClass>
+				<grpsource></grpsource>
+				<onclick></onclick>
+				<ongotfocus></ongotfocus>
+			</htmlcontrol>
+		</fieldelem>
+	</elementos>
+	<reglas>
+		<regelem name="1">
+			<test>NoVacio</test>
+			<field name="nom_car" />
+			<mensaje>La Cartera no puede quedar vacia</mensaje>
+		</regelem>
+		<regelem name="2">
+			<test>MustNumero</test>
+			<field name="mto_cto" />
+			<mensaje>El Monto Contrato debe ser numerico</mensaje>
+		</regelem>
+		<regelem name="3">
+			<test>NoVacio</test>
+			<field name="mto_cto">0</field>
+			<mensaje>El Monto Contrato debe tener un valor &gt; 0</mensaje>
+		</regelem>
+	</reglas>
+</REG_FXG>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<list setid="Set_0" servicio="lista_dos">
+	<keyelem localname="keydata">
+		<localtipo>T</localtipo>
+		<readelem sqlname="esc_idd" />
+	</keyelem>
+	<rawelem localname="rawdata">
+		<localtipo>T</localtipo>
+		<htmlname>crudo</htmlname>
+		<dispformat></dispformat>
+		<readelem sqlname="esc_nom" />
+	</rawelem>
+	<colelem localname="eluno">
+		<localtipo>C</localtipo>
+		<htmlname>uno</htmlname>
+		<dispformat>c:8</dispformat>
+		<readelem sqlname="esc_uno" />
+		<htmlcontrol>
+			<tipo>text</tipo>
+			<cssClass>bonito</cssClass>
+		</htmlcontrol> 
+	</colelem>
+	<colelem localname="eldos">
+		<localtipo>T</localtipo>
+		<htmlname>dos</htmlname>
+		<dispformat></dispformat>
+		<readelem sqlname="esc_dos" />
+		<htmlcontrol>
+			<tipo>text</tipo>
+			<cssClass>bonito</cssClass>
+		</htmlcontrol> 
+	</colelem>
+</list>

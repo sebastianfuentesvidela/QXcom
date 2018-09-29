@@ -1,0 +1,48 @@
+package data_layer;
+
+import org.w3c.dom.*;
+import javax.xml.xpath.*;
+import javax.xml.parsers.*;
+import java.io.IOException;
+import org.xml.sax.SAXException;
+
+public class cServiceLoader
+{
+	
+	public void cServiceLoader()
+	{
+	}
+		
+	public boolean LoadPackage(String sPackage)
+	{
+		boolean bRetVal = true;
+	
+		try
+		{
+			DocumentBuilderFactory domFactory =  DocumentBuilderFactory.newInstance();
+			domFactory.setNamespaceAware(true); 
+			DocumentBuilder builder = domFactory.newDocumentBuilder();
+			Document doc = builder.parse(sPackage);
+			XPath xpath = XPathFactory.newInstance().newXPath();
+	
+			// XPath Query for showing all nodes value
+			XPathExpression expr = xpath.compile("//person/*/text()");
+	
+			Object result = expr.evaluate(doc, XPathConstants.NODESET);
+			NodeList nodes = (NodeList) result;
+			for (int i = 0; i < nodes.getLength(); i++)
+			{
+				System.out.println(nodes.item(i).getNodeValue()); 
+		
+			}
+		}
+		catch (Exception ex)
+		{
+			ex.printStackTrace();
+			bRetVal = false;
+		}
+		return bRetVal;
+	
+	}
+	
+}

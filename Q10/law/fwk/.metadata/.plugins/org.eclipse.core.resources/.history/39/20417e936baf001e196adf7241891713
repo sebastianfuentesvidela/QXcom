@@ -1,0 +1,89 @@
+package data_layer;
+
+public final class ServiceCatalog {
+
+	public enum eServiceType
+	{
+		HTTP_GET,
+		HTTP_POST,
+		SQL_SENTENCE,
+		SQL_STORED_PROCEDURE,
+		COM_OBJECT,
+		WEB_SERVICE,
+		MQ_SERIES_MESSAGE,
+		META_SERVICE
+	}
+	
+	public enum eServiceSubType
+	{
+		SQL_QUERY,
+		SQL_NON_QUERY
+	}
+
+	public enum eServiceReplyFormat
+	{
+		XML,
+		JSON_STRING,
+		PIPED_STRING
+	}
+	
+	public enum eParameterType
+	{
+		NUMBER,
+		STRING,
+		DATE
+	}
+	
+	public static class cService
+	{
+		String sName;
+		eServiceType eType;
+		String sComments;
+		eServiceReplyFormat [] aeReplyFormats;
+		boolean bCacheable = false;
+	}
+	
+	public class cServiceEx
+	{
+		cService Service;
+		StringBuilder sbRequest;
+		StringBuilder sbReply;
+		StringBuilder sbLog;
+		String sUser;
+	}
+	
+	
+	public class cParameter
+	{
+		String sName;
+		eParameterType eType;
+		int iOrder;
+		int iLength;
+		int iDecimals;
+	}
+	
+	public class cConnection
+	{
+		String sUser;
+		String sPassword;
+		String sServer;
+	}
+	
+	public ServiceCatalog()
+	{
+		
+		
+		
+		
+		
+	}
+	
+	public void AddService(String Name)
+	{
+		
+		
+		
+		
+		
+	}
+}

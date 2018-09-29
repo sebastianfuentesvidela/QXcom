@@ -1,0 +1,7 @@
+CREATE PROCEDURE dbo.LoadData
+	
+AS
+	INSERT INTO Court VALUES(104,'ROUND VALLEY JUSTICE COURT','Larry Doe','Courts more information, more information goes here.')
+	INSERT INTO Court VALUES(105,'BENSON JUSTICE COURT','John Smith','Did you go to a court before?')
+	INSERT INTO Court VALUES(106,'FLAGSTAFF JUSTICE COURT','Andrew Smith','N/A')
+	RETURN

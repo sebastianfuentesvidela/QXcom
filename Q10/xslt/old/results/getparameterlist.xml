@@ -1,0 +1,880 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<record returnvalue="0">
+	<recordset setid="Set_0">
+		<fields>
+			<field name="pva_cod_tbl" type="200" />
+			<field name="pva_cod_val" type="3" />
+			<field name="pva_gls_crt" type="200" />
+			<field name="pva_des" type="200"  />
+			<field name="pva_gls_igl" type="129" />
+		</fields>
+		<row>
+			<pva_cod_tbl>acn_svt</pva_cod_tbl>
+			<pva_cod_val>1</pva_cod_val>
+			<pva_gls_crt>New</pva_gls_crt>
+			<pva_des>Nueva</pva_des>
+			<pva_gls_igl>New                 </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>acn_svt</pva_cod_tbl>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>Expire</pva_gls_crt>
+			<pva_des>Expiracion</pva_des>
+			<pva_gls_igl>Expire              </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>acn_svt</pva_cod_tbl>
+			<pva_cod_val>3</pva_cod_val>
+			<pva_gls_crt>Exercise</pva_gls_crt>
+			<pva_des>Ejercicio</pva_des>
+			<pva_gls_igl>Exercise            </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>cls_opc</pva_cod_tbl>
+			<pva_cod_val>1</pva_cod_val>
+			<pva_gls_crt>VAN</pva_gls_crt>
+			<pva_des>Vanilla</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>cls_opc</pva_cod_tbl>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>Otra</pva_gls_crt>
+			<pva_des>Otra</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>elo_opc</pva_cod_tbl>
+			<pva_cod_val>1</pva_cod_val>
+			<pva_gls_crt>Americana</pva_gls_crt>
+			<pva_des>Americana</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>elo_opc</pva_cod_tbl>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>Europea</pva_gls_crt>
+			<pva_des>Europea</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>elo_opc</pva_cod_tbl>
+			<pva_cod_val>3</pva_cod_val>
+			<pva_gls_crt>Otra</pva_gls_crt>
+			<pva_des>Otra</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_bac_spo</pva_cod_tbl>
+			<pva_cod_val>1</pva_cod_val>
+			<pva_gls_crt>Ingresada</pva_gls_crt>
+			<pva_des>Ingresada</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_bac_spo</pva_cod_tbl>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>No ingresada</pva_gls_crt>
+			<pva_des>No ingresada</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_cdt</pva_cod_tbl>
+			<pva_cod_val>1</pva_cod_val>
+			<pva_gls_crt>Realizada</pva_gls_crt>
+			<pva_des>Realizada</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_cdt</pva_cod_tbl>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>No realizada</pva_gls_crt>
+			<pva_des>No realizada</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_lim</pva_cod_tbl>
+			<pva_cod_val>1</pva_cod_val>
+			<pva_gls_crt>Limite reservado</pva_gls_crt>
+			<pva_des>Limite reservado</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_lim</pva_cod_tbl>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>Limite no reservado</pva_gls_crt>
+			<pva_des>Limite no reservado</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_mdp</pva_cod_tbl>
+			<pva_cod_val>1</pva_cod_val>
+			<pva_gls_crt>Pagada</pva_gls_crt>
+			<pva_des>Pagada</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_mdp</pva_cod_tbl>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>Cobrada</pva_gls_crt>
+			<pva_des>Cobrada</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_mdp</pva_cod_tbl>
+			<pva_cod_val>3</pva_cod_val>
+			<pva_gls_crt>Sin Antecedentes</pva_gls_crt>
+			<pva_des>Sin Antecedentes</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_opc</pva_cod_tbl>
+			<pva_cod_val>1</pva_cod_val>
+			<pva_gls_crt>Anulada</pva_gls_crt>
+			<pva_des>Anulada</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_opc</pva_cod_tbl>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>Registrada</pva_gls_crt>
+			<pva_des>Registrada</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_opc</pva_cod_tbl>
+			<pva_cod_val>3</pva_cod_val>
+			<pva_gls_crt>Ingresada</pva_gls_crt>
+			<pva_des>Ingresada</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_opc</pva_cod_tbl>
+			<pva_cod_val>4</pva_cod_val>
+			<pva_gls_crt>Prima Registrada</pva_gls_crt>
+			<pva_des>Prima Registrada</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_opc</pva_cod_tbl>
+			<pva_cod_val>10</pva_cod_val>
+			<pva_gls_crt>Cursada</pva_gls_crt>
+			<pva_des>Cursada</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_opc</pva_cod_tbl>
+			<pva_cod_val>11</pva_cod_val>
+			<pva_gls_crt>Vigente</pva_gls_crt>
+			<pva_des>Vigente</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_opc</pva_cod_tbl>
+			<pva_cod_val>12</pva_cod_val>
+			<pva_gls_crt>Ejercida</pva_gls_crt>
+			<pva_des>Ejercida</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_opc</pva_cod_tbl>
+			<pva_cod_val>13</pva_cod_val>
+			<pva_gls_crt>Expirada</pva_gls_crt>
+			<pva_des>Expirada</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_opc</pva_cod_tbl>
+			<pva_cod_val>17</pva_cod_val>
+			<pva_gls_crt>Historica Liquidada</pva_gls_crt>
+			<pva_des>Historica Liquidada</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_opc</pva_cod_tbl>
+			<pva_cod_val>18</pva_cod_val>
+			<pva_gls_crt>Ejercicio Aprobado</pva_gls_crt>
+			<pva_des>Ejercicio Aprobado</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_opc</pva_cod_tbl>
+			<pva_cod_val>19</pva_cod_val>
+			<pva_gls_crt>Ejercicio Rechazado</pva_gls_crt>
+			<pva_des>Ejercicio Rechazado</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_opc</pva_cod_tbl>
+			<pva_cod_val>20</pva_cod_val>
+			<pva_gls_crt>Expiraci&#243;n Aprobada</pva_gls_crt>
+			<pva_des>Expiraci&#243;n Aprobada</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_opc</pva_cod_tbl>
+			<pva_cod_val>21</pva_cod_val>
+			<pva_gls_crt>Expiraci&#243;n Rechazada</pva_gls_crt>
+			<pva_des>Expiraci&#243;n Rechazada</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_opc</pva_cod_tbl>
+			<pva_cod_val>24</pva_cod_val>
+			<pva_gls_crt>Opci&#243;n Liquidada</pva_gls_crt>
+			<pva_des>Opci&#243;n Liquidada</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_opc</pva_cod_tbl>
+			<pva_cod_val>28</pva_cod_val>
+			<pva_gls_crt>Historica Expirada</pva_gls_crt>
+			<pva_des>Historica Expirada</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_opc</pva_cod_tbl>
+			<pva_cod_val>30</pva_cod_val>
+			<pva_gls_crt>Liquidaci&#243;n Anulada</pva_gls_crt>
+			<pva_des>Liquidaci&#243;n Anulada</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_pcg</pva_cod_tbl>
+			<pva_cod_val>1</pva_cod_val>
+			<pva_gls_crt>Cargado</pva_gls_crt>
+			<pva_des>Cargado</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_pcg</pva_cod_tbl>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>No Cargado</pva_gls_crt>
+			<pva_des>No Cargado</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_pcs_ctb</pva_cod_tbl>
+			<pva_cod_val>1</pva_cod_val>
+			<pva_gls_crt>Realizado</pva_gls_crt>
+			<pva_des>Realizado</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_pcs_ctb</pva_cod_tbl>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>No Realizado</pva_gls_crt>
+			<pva_des>No Realizado</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_pcs_ctb</pva_cod_tbl>
+			<pva_cod_val>3</pva_cod_val>
+			<pva_gls_crt>Pendiente</pva_gls_crt>
+			<pva_des>Pendiente</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_rpe</pva_cod_tbl>
+			<pva_cod_val>1</pva_cod_val>
+			<pva_gls_crt>Generado</pva_gls_crt>
+			<pva_des>Generado</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_rpe</pva_cod_tbl>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>No Generado</pva_gls_crt>
+			<pva_des>No Generado</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_spo</pva_cod_tbl>
+			<pva_cod_val>1</pva_cod_val>
+			<pva_gls_crt>Ingresada</pva_gls_crt>
+			<pva_des>Ingresada</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_spo</pva_cod_tbl>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>Completada</pva_gls_crt>
+			<pva_des>Completada</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>est_spo</pva_cod_tbl>
+			<pva_cod_val>3</pva_cod_val>
+			<pva_gls_crt>Historica</pva_gls_crt>
+			<pva_des>Historica</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>fac_can_uno</pva_cod_tbl>
+			<pva_cod_val>4</pva_cod_val>
+			<pva_gls_crt>Menos de un A&#241;o</pva_gls_crt>
+			<pva_des>Menos de un A&#241;o               </pva_des>
+			<pva_gls_igl>1,5                 </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>fac_can_uno</pva_cod_tbl>
+			<pva_cod_val>5</pva_cod_val>
+			<pva_gls_crt>Mas A&#241;o Men de Cinco</pva_gls_crt>
+			<pva_des>Masde un A&#241;o Menos de Cinco</pva_des>
+			<pva_gls_igl>7                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>fac_can_uno</pva_cod_tbl>
+			<pva_cod_val>6</pva_cod_val>
+			<pva_gls_crt>Mas de Cinco A&#241;os</pva_gls_crt>
+			<pva_des>Mas de Cinco A&#241;os             </pva_des>
+			<pva_gls_igl>13                  </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>mdo_pag_cbr</pva_cod_tbl>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>CHEQUE</pva_gls_crt>
+			<pva_des>CHEQUE</pva_des>
+			<pva_gls_igl>1                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>mdo_pag_cbr</pva_cod_tbl>
+			<pva_cod_val>3</pva_cod_val>
+			<pva_gls_crt>VALE VISTA</pva_gls_crt>
+			<pva_des>VALE VISTA</pva_des>
+			<pva_gls_igl>1                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>mdo_pag_cbr</pva_cod_tbl>
+			<pva_cod_val>4</pva_cod_val>
+			<pva_gls_crt>VALE CAMARA</pva_gls_crt>
+			<pva_des>VALE CAMARA</pva_des>
+			<pva_gls_igl>0                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>mdo_pag_cbr</pva_cod_tbl>
+			<pva_cod_val>7</pva_cod_val>
+			<pva_gls_crt>TRANS 24</pva_gls_crt>
+			<pva_des>TRANS 24</pva_des>
+			<pva_gls_igl>1                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>mdo_pag_cbr</pva_cod_tbl>
+			<pva_cod_val>8</pva_cod_val>
+			<pva_gls_crt>TRANS 48</pva_gls_crt>
+			<pva_des>TRANS 48</pva_des>
+			<pva_gls_igl>2                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>mdo_pag_cbr</pva_cod_tbl>
+			<pva_cod_val>9</pva_cod_val>
+			<pva_gls_crt>CHEQUE DOLAR</pva_gls_crt>
+			<pva_des>CHEQUE DOLAR</pva_des>
+			<pva_gls_igl>2                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>mdo_pag_cbr</pva_cod_tbl>
+			<pva_cod_val>10</pva_cod_val>
+			<pva_gls_crt>TRANS HOY</pva_gls_crt>
+			<pva_des>TRANS HOY</pva_des>
+			<pva_gls_igl>0                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>mdo_pag_cbr</pva_cod_tbl>
+			<pva_cod_val>15</pva_cod_val>
+			<pva_gls_crt>OTRAS OFICINAS</pva_gls_crt>
+			<pva_des>OTRAS OFICINAS</pva_des>
+			<pva_gls_igl>0                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>mdo_pag_cbr</pva_cod_tbl>
+			<pva_cod_val>17</pva_cod_val>
+			<pva_gls_crt>TRANS 72</pva_gls_crt>
+			<pva_des>TRANS 72</pva_des>
+			<pva_gls_igl>3                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>mdo_pag_cbr</pva_cod_tbl>
+			<pva_cod_val>21</pva_cod_val>
+			<pva_gls_crt>CUENTA CORRIENTE</pva_gls_crt>
+			<pva_des>CUENTA CORRIENTE</pva_des>
+			<pva_gls_igl>0                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>mdo_pag_cbr</pva_cod_tbl>
+			<pva_cod_val>28</pva_cod_val>
+			<pva_gls_crt>CUENTA AHORRO</pva_gls_crt>
+			<pva_des>CUENTA AHORRO</pva_des>
+			<pva_gls_igl>0                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>mdo_pag_cbr</pva_cod_tbl>
+			<pva_cod_val>41</pva_cod_val>
+			<pva_gls_crt>SPAV T+0</pva_gls_crt>
+			<pva_des>SPAV T+0</pva_des>
+			<pva_gls_igl>0                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>mdo_pag_cbr</pva_cod_tbl>
+			<pva_cod_val>42</pva_cod_val>
+			<pva_gls_crt>SPAV T+1</pva_gls_crt>
+			<pva_des>SPAV T+1</pva_des>
+			<pva_gls_igl>1                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>mdo_pag_cbr</pva_cod_tbl>
+			<pva_cod_val>43</pva_cod_val>
+			<pva_gls_crt>SPAV T+2</pva_gls_crt>
+			<pva_des>SPAV T+2</pva_des>
+			<pva_gls_igl>2                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>mdo_pag_cbr</pva_cod_tbl>
+			<pva_cod_val>44</pva_cod_val>
+			<pva_gls_crt>SPAV T+3</pva_gls_crt>
+			<pva_des>SPAV T+3</pva_des>
+			<pva_gls_igl>3                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>mdo_pag_cbr</pva_cod_tbl>
+			<pva_cod_val>45</pva_cod_val>
+			<pva_gls_crt>SPAV T+4</pva_gls_crt>
+			<pva_des>SPAV T+4</pva_des>
+			<pva_gls_igl>4                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>mdo_pag_cbr</pva_cod_tbl>
+			<pva_cod_val>46</pva_cod_val>
+			<pva_gls_crt>SPAV T+5</pva_gls_crt>
+			<pva_des>SPAV T+5</pva_des>
+			<pva_gls_igl>5                   </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>mod_cum</pva_cod_tbl>
+			<pva_cod_val>1</pva_cod_val>
+			<pva_gls_crt>Entrega Fisica</pva_gls_crt>
+			<pva_des>Entrega Fisica</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>mod_cum</pva_cod_tbl>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>Compensacion</pva_gls_crt>
+			<pva_des>Compensacion</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>msj_ing_mvt</pva_cod_tbl>
+			<pva_cod_val>1</pva_cod_val>
+			<pva_gls_crt>Sin errores</pva_gls_crt>
+			<pva_des>Sin errores</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>msj_ing_mvt</pva_cod_tbl>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>Falla en conexi&#243;n</pva_gls_crt>
+			<pva_des>Falla en conexi&#243;n con Superderivatives</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>msj_ing_mvt</pva_cod_tbl>
+			<pva_cod_val>3</pva_cod_val>
+			<pva_gls_crt>XML incorrecto</pva_gls_crt>
+			<pva_des>XML incorrecto o mal formado</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>mtv_rch_cdt</pva_cod_tbl>
+			<pva_cod_val>1</pva_cod_val>
+			<pva_gls_crt>No coincide monto</pva_gls_crt>
+			<pva_des>No coincide monto</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>mtv_rch_cdt</pva_cod_tbl>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>No coincide cod moneda liq</pva_gls_crt>
+			<pva_des>No coincide codigo moneda liquidacion</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>obj_opc</pva_cod_tbl>
+			<pva_cod_val>1</pva_cod_val>
+			<pva_gls_crt>Negocio</pva_gls_crt>
+			<pva_des>Negocio</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>obj_opc</pva_cod_tbl>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>Cobertura</pva_gls_crt>
+			<pva_des>Cobertura</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>org_mov</pva_cod_tbl>
+			<pva_cod_val>1</pva_cod_val>
+			<pva_gls_crt>BOP</pva_gls_crt>
+			<pva_des>Back Office Opciones</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>org_mov</pva_cod_tbl>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>SDFX</pva_gls_crt>
+			<pva_des>Superderivatives</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>org_ope</pva_cod_tbl>
+			<pva_cod_val>1</pva_cod_val>
+			<pva_gls_crt>BOP</pva_gls_crt>
+			<pva_des>Back Office Opciones</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>org_ope</pva_cod_tbl>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>SDFX</pva_gls_crt>
+			<pva_des>Superderivatives</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_acn_pag_cbr</pva_cod_tbl>
+			<pva_cod_val>1</pva_cod_val>
+			<pva_gls_crt>Pago</pva_gls_crt>
+			<pva_des>Pago</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_acn_pag_cbr</pva_cod_tbl>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>Cobro</pva_gls_crt>
+			<pva_des>Cobro</pva_des>
+			<pva_gls_igl>Sell                </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_cnp</pva_cod_tbl>
+			<pva_cod_val>1</pva_cod_val>
+			<pva_gls_crt>Bco</pva_gls_crt>
+			<pva_des>Banco</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_cnp</pva_cod_tbl>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>Empresa</pva_gls_crt>
+			<pva_des>Empresa</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_ctr</pva_cod_tbl>
+			<pva_cod_val>1</pva_cod_val>
+			<pva_gls_crt>Posicion</pva_gls_crt>
+			<pva_des>Posicion</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_ctr</pva_cod_tbl>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>Intermediacion</pva_gls_crt>
+			<pva_des>Intermediacion</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_doc</pva_cod_tbl>
+			<pva_cod_val>1</pva_cod_val>
+			<pva_gls_crt>Contrato</pva_gls_crt>
+			<pva_des>Contrato</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_doc</pva_cod_tbl>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>Voucher</pva_gls_crt>
+			<pva_des>Voucher</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_doc</pva_cod_tbl>
+			<pva_cod_val>3</pva_cod_val>
+			<pva_gls_crt>Fax</pva_gls_crt>
+			<pva_des>Fax</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_ing_pcg</pva_cod_tbl>
+			<pva_cod_val>1</pva_cod_val>
+			<pva_gls_crt>Automatico</pva_gls_crt>
+			<pva_des>Automatico</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_ing_pcg</pva_cod_tbl>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>Manual</pva_gls_crt>
+			<pva_des>Manual</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_mon</pva_cod_tbl>
+			<pva_cod_val>13</pva_cod_val>
+			<pva_gls_crt>USD</pva_gls_crt>
+			<pva_des>D&#243;lar</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_mon</pva_cod_tbl>
+			<pva_cod_val>142</pva_cod_val>
+			<pva_gls_crt>EUR</pva_gls_crt>
+			<pva_des>E.U.R.O</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_mon</pva_cod_tbl>
+			<pva_cod_val>999</pva_cod_val>
+			<pva_gls_crt>CLP</pva_gls_crt>
+			<pva_des>Peso</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_opc</pva_cod_tbl>
+			<pva_cod_val>1</pva_cod_val>
+			<pva_gls_crt>Call</pva_gls_crt>
+			<pva_des>Call</pva_des>
+			<pva_gls_igl>Call                </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_opc</pva_cod_tbl>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>Put</pva_gls_crt>
+			<pva_des>Put</pva_des>
+			<pva_gls_igl>Put                 </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_ope</pva_cod_tbl>
+			<pva_cod_val>1</pva_cod_val>
+			<pva_gls_crt>Compra</pva_gls_crt>
+			<pva_des>Compra</pva_des>
+			<pva_gls_igl>Buy                 </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_ope</pva_cod_tbl>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>Venta</pva_gls_crt>
+			<pva_des>Venta</pva_des>
+			<pva_gls_igl>Sell                </pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_ope_pag_cbr</pva_cod_tbl>
+			<pva_cod_val>1</pva_cod_val>
+			<pva_gls_crt>Prima</pva_gls_crt>
+			<pva_des>Prima</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_ope_pag_cbr</pva_cod_tbl>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>Opcion</pva_gls_crt>
+			<pva_des>Opcion</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_pcg</pva_cod_tbl>
+			<pva_cod_val>1</pva_cod_val>
+			<pva_gls_crt>Calculo valor Intrinseco</pva_gls_crt>
+			<pva_des>Calculo valor Intrinseco</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_pcg</pva_cod_tbl>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>Proceso inicio dia</pva_gls_crt>
+			<pva_des>Proceso inicio dia</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_pcg</pva_cod_tbl>
+			<pva_cod_val>3</pva_cod_val>
+			<pva_gls_crt>Carga TC referencial</pva_gls_crt>
+			<pva_des>Carga tipo de cambio referencial</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_pcg</pva_cod_tbl>
+			<pva_cod_val>4</pva_cod_val>
+			<pva_gls_crt>Carga paridad</pva_gls_crt>
+			<pva_des>Carga paridad</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_pcg</pva_cod_tbl>
+			<pva_cod_val>5</pva_cod_val>
+			<pva_gls_crt>Carga archivo cartera trader</pva_gls_crt>
+			<pva_des>Carga archivo cartera trader</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_pcg</pva_cod_tbl>
+			<pva_cod_val>6</pva_cod_val>
+			<pva_gls_crt>Proceso cierre trader</pva_gls_crt>
+			<pva_des>Proceso cierre trader</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_pcg</pva_cod_tbl>
+			<pva_cod_val>7</pva_cod_val>
+			<pva_gls_crt>Generacion cartera cierre</pva_gls_crt>
+			<pva_des>Generacion cartera cierre</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_rpe</pva_cod_tbl>
+			<pva_cod_val>1</pva_cod_val>
+			<pva_gls_crt>C01</pva_gls_crt>
+			<pva_des>C01</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_rpe</pva_cod_tbl>
+			<pva_cod_val>2</pva_cod_val>
+			<pva_gls_crt>C02</pva_gls_crt>
+			<pva_des>C02</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_rpe</pva_cod_tbl>
+			<pva_cod_val>3</pva_cod_val>
+			<pva_gls_crt>C08</pva_gls_crt>
+			<pva_des>C08</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_rpe</pva_cod_tbl>
+			<pva_cod_val>4</pva_cod_val>
+			<pva_gls_crt>C14</pva_gls_crt>
+			<pva_des>C14</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_rpe</pva_cod_tbl>
+			<pva_cod_val>5</pva_cod_val>
+			<pva_gls_crt>C15</pva_gls_crt>
+			<pva_des>C15</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_rpe</pva_cod_tbl>
+			<pva_cod_val>6</pva_cod_val>
+			<pva_gls_crt>C40</pva_gls_crt>
+			<pva_des>C40</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_rpe</pva_cod_tbl>
+			<pva_cod_val>7</pva_cod_val>
+			<pva_gls_crt>C41</pva_gls_crt>
+			<pva_des>C41</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_rpe</pva_cod_tbl>
+			<pva_cod_val>8</pva_cod_val>
+			<pva_gls_crt>C42</pva_gls_crt>
+			<pva_des>C42</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+		<row>
+			<pva_cod_tbl>tip_rpe</pva_cod_tbl>
+			<pva_cod_val>9</pva_cod_val>
+			<pva_gls_crt>C43</pva_gls_crt>
+			<pva_des>C43</pva_des>
+			<pva_gls_igl>
+			</pva_gls_igl>
+		</row>
+	</recordset>
+</record>

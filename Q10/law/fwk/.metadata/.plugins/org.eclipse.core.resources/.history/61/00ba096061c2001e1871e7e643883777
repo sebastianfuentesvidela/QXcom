@@ -1,0 +1,220 @@
+package data_layer;
+
+import java.net.Socket;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathFactory;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.NodeList;
+
+
+public final class ServiceCatalog {
+
+	
+	public static HashMap<String, cService> hmServices = new HashMap<String, cService>();
+	
+	public enum eServiceType
+	{
+		NONE,
+		HTTP_GET,
+		HTTP_POST,
+		SQL_SENTENCE,
+		SQL_STORED_PROCEDURE,
+		COM_OBJECT,
+		WEB_SERVICE,
+		MQ_SERIES_MESSAGE,
+		META_SERVICE
+	}
+	
+	public enum eServiceSubType
+	{
+		SQL_QUERY,
+		SQL_NON_QUERY
+	}
+
+	public enum eServiceReplyFormat
+	{
+		XML,
+		JSON_STRING,
+		PIPED_STRING
+	}
+	
+	public enum eParameterType
+	{
+		NONE,
+		NUMBER,
+		STRING,
+		DATE
+	}
+	
+	public final static class cService
+	{
+		String sName;
+		eServiceType eType;
+		String sComments;
+		cParameter [] aParameter;
+		String sCommand;
+		eServiceReplyFormat [] aeReplyFormats;
+		boolean bCacheable = false;
+	}
+	
+	
+	
+	
+	public final static class cParameter
+	{
+		String sName;
+		eParameterType eType;
+		int iOrder;
+		int iLength;
+		int iDecimals;
+	}
+	
+	public final class cConnection
+	{
+		String sUser;
+		String sPassword;
+		String sServer;
+	}
+	
+	public ServiceCatalog()
+	{
+		hmServices = new HashMap<String, cService>();
+	}
+	
+	public static void AddService(String sKey, cService Service)
+	{
+		hmServices.put(sKey, Service);
+	}
+	
+	public static void DumpCatalog()
+	{
+	
+		System.out.println("-- SERVICE LIST");
+		for(String key : hmServices.keySet())
+		{
+			cService Service = hmServices.get(key);
+			System.out.println("\t" + Service.sName );
+		}	
+		System.out.println("-- ");
+		
+	}
+	
+	public static boolean LoadPackage(String sPackage)
+	{
+		boolean bRetVal = true;
+		
+		System.out.printf("Loading package %s.\n", sPackage); 
+	
+		try
+		{
+			DocumentBuilderFactory domFactory =  DocumentBuilderFactory.newInstance();
+			domFactory.setNamespaceAware(true); 
+			DocumentBuilder builder = domFactory.newDocumentBuilder();
+			Document doc = builder.parse(sPackage);
+			XPath xpath = XPathFactory.newInstance().newXPath();
+	
+			// XPath Query for showing all nodes value
+			XPathExpression expr = xpath.compile("/package/*");
+	
+			Object result = expr.evaluate(doc, XPathConstants.NODESET);
+			NodeList nodes = (NodeList) result;
+			for (int i = 0; i < nodes.getLength(); i++)
+			{
+				if ( nodes.item(i).getNodeName().equalsIgnoreCase("service") )
+				{
+					cService Service = new cService();
+					
+					NamedNodeMap nms = nodes.item(i).getAttributes();
+					Service.sName = nms.getNamedItem("name").getNodeValue();
+					
+					String sType = nms.getNamedItem("type").getNodeValue();
+					if ( sType.equalsIgnoreCase("SQL") ) Service.eType = eServiceType.SQL_SENTENCE;
+					//$dev: agregar mas tipos
+					
+					NodeList sn = nodes.item(i).getChildNodes();
+					Service.aParameter = new cParameter[sn.getLength()]; //$dev contar parametros y dimensionar accordingly
+					
+					for (int j=0; j<sn.getLength(); j++)
+					{
+						String sNodename = sn.item(j).getNodeName();
+						if ( sNodename.equalsIgnoreCase("param") )
+						{
+							NamedNodeMap nm = sn.item(j).getAttributes();
+
+							cParameter Parameter = new cParameter();
+							Parameter.sName = nm.getNamedItem("name").getNodeValue();
+							Parameter.eType = GetParameterEType(nm.getNamedItem("type").getNodeValue());
+							
+							if ( nm.getNamedItem("length") != null )
+								Parameter.iLength = Integer.parseInt(nm.getNamedItem("length").getNodeValue());
+							else
+								Parameter.iLength = 0;
+							
+							if ( nm.getNamedItem("decimals") != null )
+								Parameter.iDecimals = Integer.parseInt(nm.getNamedItem("decimals").getNodeValue());
+							else
+								Parameter.iDecimals = 0;
+							
+							
+							continue;
+						}
+
+						if ( sNodename.equalsIgnoreCase("sql") )
+						{
+							Service.sCommand = sn.item(j).getNodeValue();
+							continue;
+						}
+					}
+					
+					AddService(Service.sName, Service);
+					
+				}	
+				
+				System.out.println(nodes.item(i).getNodeName()); 
+				
+			}
+		}
+		catch (Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		return bRetVal;
+	
+	}
+	
+	private static eParameterType GetParameterEType(String sType)
+	{
+		eParameterType eType = eParameterType.NONE;
+		
+		if (sType.equalsIgnoreCase("string")) eType = eParameterType.STRING;
+		if (sType.equalsIgnoreCase("number")) eType = eParameterType.NUMBER;
+		if (sType.equalsIgnoreCase("date")) eType = eParameterType.DATE;
+	
+		return eType;
+	}
+	
+	private static eServiceType GetServiceEType(String sType)
+	{
+		eServiceType eType = eServiceType.NONE;
+		
+		if (sType.equalsIgnoreCase("sql")) eType = eServiceType.SQL_SENTENCE;
+		if (sType.equalsIgnoreCase("sql_sp")) eType = eServiceType.SQL_STORED_PROCEDURE;
+		if (sType.equalsIgnoreCase("http get")) eType = eServiceType.HTTP_GET;
+		if (sType.equalsIgnoreCase("http post")) eType = eServiceType.HTTP_POST;
+		if (sType.equalsIgnoreCase("ibmmq")) eType = eServiceType.MQ_SERIES_MESSAGE;
+		if (sType.equalsIgnoreCase("mscom")) eType = eServiceType.COM_OBJECT;
+		
+		return eType;
+	}
+	
+}

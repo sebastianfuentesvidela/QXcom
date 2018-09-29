@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<REG_FXG>
+	<tiporegistro>OPCION</tiporegistro>
+	<usagemode>INGRESO</usagemode>
+	<onget not_onpost="use" service="getopcionxfolio_edit" param="folio" />
+	<edittempl>xslt/bop_crea_opcionvan.xslt</edittempl>
+	<notfoundtempl>xslt/notfound_opcionvan.xslt</notfoundtempl>
+	<errortempl>xslt/bop_errorbop.xslt</errortempl>
+	<imageerr>img/miss.gif</imageerr>
+	<defaultboton servicio="VANingresaopcion">
+		<outredirect>operator?bop_show_opvan=#1#|#2#</outredirect>
+		<titimage></titimage>
+		<titulo>Grabar Opción</titulo>
+		<cssClass>clsBoton</cssClass>
+		<style></style>
+	</defaultboton>
+	<formboton localname="Limpia" onclick="CleanForm()">
+		<rendtempl>xslt/listvan.xslt</rendtempl>
+		<titimage></titimage>
+		<titulo>Limpiar</titulo>
+		<cssClass>clsBoton</cssClass>
+		<style></style>
+	</formboton>
+	<grupos servicio="getpralistgen">
+		<grupelem name="CboMonedas" setname="tip_mon"></grupelem>
+		<grupelem name="CboTipoOperacion" setname="tip_ope"></grupelem>
+		<grupelem name="CboTipoOpcion" setname="tip_opc"></grupelem>
+		<grupelem name="CboTipoContraparte" setname="tip_cnp"></grupelem>
+		<grupelem name="CboClaseOpcion" setname="cls_opc"></grupelem>
+		<grupelem name="CboEstilos" setname="elo_opc"></grupelem>
+		<grupelem name="CboEstadosSpot" setname="est_spo"></grupelem>
+		<grupelem name="CboCartera" setname="tip_ctr"></grupelem>
+		<grupelem name="CboModalidad" setname="mod_cum"></grupelem>
+		<grupelem name="CboMedioPago" setname="mdo_pag_cbr"></grupelem>
+		<grupelem name="CboObjetivoOpc" setname="obj_opc"></grupelem>
+	</grupos>
+	<head service="getheadparams" param="header">
+		<headelem localname="fecha_negocio">
+			<localtipo>D</localtipo>
+			<htmlname>FProceso</htmlname>
+			<rotulo>Fecha Proceso</rotulo>
+			<htmldefaultval></htmldefaultval>
+			<readelem sqlname="fec_pct_pnd" />
+			<htmlcontrol>
+				<tipo>hidden</tipo>
+			</htmlcontrol>
+		</headelem>
+	</head>
+	<elementos>
+		<fieldelem localname="plazo_residual">
+			<localtipo>D</localtipo>
+			<htmlname>PlResidual</htmlname>
+			<rotulo>Plazo Residual</rotulo>
+			<htmldefaultval>0</htmldefaultval>
+			<noreadelem sqlname="plazo_res" />
+			<htmlcontrol>
+				<tipo>label</tipo>
+				<style>FONT-SIZE: 12px; COLOR: maroon; FONT-FAMILY: Arial; </style>
+				<cssClass></cssClass>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="nro_opcion">
+			<localtipo>N</localtipo>
+			<htmlname>Folio</htmlname>
+			<rotulo>Folio Opción</rotulo>
+			<htmldefaultval use="querystring|0">0</htmldefaultval>
+			<paramname>opc_fol</paramname>
+			<readelem sqlname="opc_fol" />
+			<htmlcontrol>
+				<tipo>label</tipo>
+				<style>FONT-SIZE: 12px; COLOR: maroon; FONT-FAMILY: Arial; </style>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="tipo_cartera">
+			<localtipo>C</localtipo>
+			<htmlname>optTipoCartera</htmlname>
+			<rotulo>Cartera</rotulo>
+			<htmldefaultval>1</htmldefaultval>
+			<paramname>pva_tip_ctr</paramname>
+			<readelem sqlname="pva_tip_ctr" />
+			<htmlcontrol>
+				<tipo>combo</tipo>
+				<style>HEIGHT: 18px; WIDTH: 180px</style>
+				<cssClass>COMBO1</cssClass>
+				<grpsource put-lead-elem="Escoger Cartera">CboCartera</grpsource>
+				<onchange>validaPar()</onchange>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="clase_opcion">
+			<localtipo>C</localtipo>
+			<htmlname>selClaOpc</htmlname>
+			<rotulo>Clase Operacion</rotulo>
+			<htmldefaultval>1</htmldefaultval>
+			<paramname>pva_cls_opc</paramname>
+			<readelem sqlname="pva_cls_opc" />
+			<htmlcontrol>
+				<tipo>hidden</tipo>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="rut_contraparte">
+			<localtipo>C</localtipo>
+			<htmlname>rut_contr</htmlname>
+			<rotulo>Rut Contraparte</rotulo>
+			<htmldefaultval></htmldefaultval>
+			<paramname>full_rut_cli</paramname>
+			<readelem sqlname="full_rut_cli"/>
+			<htmlcontrol>
+				<tipo>text</tipo>
+				<maxlen>14</maxlen>
+				<style>HEIGHT: 18px; width: 100px; text-align: right;</style>
+				<numformat>rut</numformat>
+				<cssClass>bonito</cssClass>
+				<onblur>SetCurrentCliente();</onblur>
+				<onkeypress>chekarut(this, event);</onkeypress>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="id_contraparte">
+			<localtipo>N</localtipo>
+			<htmlname>cliid_contr</htmlname>
+			<rotulo>ID Contraparte</rotulo>
+			<htmldefaultval></htmldefaultval>
+			<paramname>opc_cod_cnp_bco</paramname>
+			<readelem sqlname="opc_cod_cnp_bco"/>
+			<htmlcontrol>
+				<tipo>hidden</tipo>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="nombre_contraparte">
+			<localtipo>C</localtipo>
+			<htmlname>NomContrap</htmlname>
+			<rotulo>Nombre Contraparte</rotulo>
+			<paramname>opc_nom_cnp_bco</paramname>
+			<readelem sqlname="opc_nom_cnp_bco"/>
+			<htmldefaultval>-No Definido-</htmldefaultval>
+			<htmlcontrol>
+				<tipo>label</tipo>
+				<style>FONT-SIZE: 12px; COLOR: maroon; FONT-FAMILY: Arial; HEIGHT: 18px; WIDTH: 107px</style>
+				<cssClass></cssClass>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="nombre_comprador">
+			<localtipo>C</localtipo>
+			<htmlname>NomCompra</htmlname>
+			<rotulo>Nombre Comprador</rotulo>
+			<htmldefaultval>BancoEstado</htmldefaultval>
+			<htmlcontrol>
+				<tipo>label</tipo>
+				<style>FONT-SIZE: 12px; COLOR: maroon; FONT-FAMILY: Arial; HEIGHT: 18px; WIDTH: 107px</style>
+				<cssClass></cssClass>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="nombre_vendedor">
+			<localtipo>C</localtipo>
+			<htmlname>NomVende</htmlname>
+			<rotulo>Nombre Vendedor</rotulo>
+			<htmldefaultval></htmldefaultval>
+			<htmlcontrol>
+				<tipo>label</tipo>
+				<style>FONT-SIZE: 12px; COLOR: maroon; FONT-FAMILY: Arial; HEIGHT: 18px; WIDTH: 107px</style>
+				<cssClass></cssClass>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="tipo_contraparte">
+			<localtipo>C</localtipo>
+			<htmlname>hidTipContr</htmlname>
+			<rotulo>Tipo Contraparte</rotulo>
+			<htmldefaultval>1</htmldefaultval>
+			<paramname>pva_tip_cnp</paramname>
+			<readelem sqlname="pva_tip_cnp" />
+			<htmlcontrol>
+				<tipo>hidden</tipo>
+				<style>HEIGHT: 18px; WIDTH: 107px</style>
+				<cssClass>COMBO1</cssClass>
+				<grpsource put-lead-elem="Tipo Contrap">CboTipoContraparte</grpsource>
+				<onclick></onclick>
+				<ongotfocus></ongotfocus>
+				<onchange></onchange>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="tipo_ope">
+			<localtipo>C</localtipo>
+			<htmlname>selTipOpe</htmlname>
+			<rotulo>Tipo Operación</rotulo>
+			<htmldefaultval>1</htmldefaultval>
+			<paramname>pva_tip_ope</paramname>
+			<readelem sqlname="pva_tip_ope" />
+			<htmlcontrol>
+				<tipo>combo</tipo>
+				<style>HEIGHT: 18px; WIDTH: 107px</style>
+				<cssClass>COMBO1</cssClass>
+				<grpsource put-lead-elem="Tipo Operación">CboTipoOperacion</grpsource>
+				<onclick></onclick>
+				<ongotfocus></ongotfocus>
+				<onchange>ReparteComprayVende();</onchange>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="tipo_oper_val">
+			<localtipo>C</localtipo>
+			<htmlname>hidTipOpe</htmlname>
+			<rotulo>Tipo Operac</rotulo>
+			<htmldefaultval>1</htmldefaultval>
+			<readelem sqlname="pva_tip_ope" />
+			<htmlcontrol>
+				<tipo>hidden</tipo>
+				<style>HEIGHT: 18px; WIDTH: 107px</style>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="tipo_opcion">
+			<localtipo>C</localtipo>
+			<htmlname>selTipOpcion</htmlname>
+			<rotulo>Tipo Opción</rotulo>
+			<htmldefaultval>1</htmldefaultval>
+			<paramname>pva_tip_opc</paramname>
+			<readelem sqlname="pva_tip_opc" />
+			<htmlcontrol>
+				<tipo>combo</tipo>
+				<style>HEIGHT: 18px; WIDTH: 107px</style>
+				<cssClass>COMBO1</cssClass>
+				<grpsource put-lead-elem="Tipo Opción">CboTipoOpcion</grpsource>
+				<onclick></onclick>
+				<ongotfocus></ongotfocus>
+				<onchange></onchange>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="estilo_opcion">
+			<localtipo>C</localtipo>
+			<htmlname>selEstOpcion</htmlname>
+			<rotulo>Estilo Opción</rotulo>
+			<htmldefaultval>2</htmldefaultval>
+			<paramname>pva_elo_opc</paramname>
+			<readelem sqlname="pva_elo_opc" />
+			<htmlcontrol>
+				<tipo>combo</tipo>
+				<style>HEIGHT: 18px; WIDTH: 107px</style>
+				<cssClass>COMBO1</cssClass>
+				<grpsource put-lead-elem="Estilo">CboEstilos</grpsource>
+				<onclick></onclick>
+				<ongotfocus></ongotfocus>
+				<onchange></onchange>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="modalidad_cum">
+			<localtipo>C</localtipo>
+			<htmlname>selModalid</htmlname>
+			<rotulo>Modalidad Cumplimiento</rotulo>
+			<htmldefaultval>1</htmldefaultval>
+			<paramname>pva_mod_cum</paramname>
+			<readelem sqlname="pva_mod_cum" />
+			<htmlcontrol>
+				<tipo>combo</tipo>
+				<style>HEIGHT: 18px; WIDTH: 107px</style>
+				<cssClass>COMBO1</cssClass>
+				<grpsource put-lead-elem="Modalidad">CboModalidad</grpsource>
+				<onclick></onclick>
+				<ongotfocus></ongotfocus>
+				<onchange></onchange>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="medio_pago_prima">
+			<localtipo>N</localtipo>
+			<htmlname>selMedPPrima</htmlname>
+			<rotulo>Medio Pago Prima</rotulo>
+			<htmldefaultval>1</htmldefaultval>
+			<paramname>pva_mdo_pag_cbr_prm</paramname>
+			<readelem sqlname="pva_mdo_pag_cbr_prm" />
+			<htmlcontrol>
+				<tipo>combo</tipo>
+				<style>HEIGHT: 18px; WIDTH: 107px</style>
+				<cssClass>COMBO1</cssClass>
+				<grpsource put-lead-elem="Medio de Pago">CboMedioPago</grpsource>
+				<onclick></onclick>
+				<ongotfocus></ongotfocus>
+				<onchange></onchange>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="moneda_pprima">
+			<localtipo>C</localtipo>
+			<htmlname>selMonds</htmlname>
+			<rotulo>Moneda de Pago Prima</rotulo>
+			<htmldefaultval>999</htmldefaultval>
+			<paramname>cod_mon_prm</paramname>
+			<readelem sqlname="cod_mon_prm" />
+			<htmlcontrol>
+				<tipo>combo</tipo>
+				<style>HEIGHT: 18px; WIDTH: 46px</style>
+				<cssClass>COMBO1</cssClass>
+				<grpsource put-lead-elem="Moneda">CboMonedas</grpsource>
+				<onchange></onchange>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="medio_pago_liqopcion">
+			<localtipo>N</localtipo>
+			<htmlname>selMedPLOp</htmlname>
+			<rotulo>Medio Pago Opción</rotulo>
+			<htmldefaultval>1</htmldefaultval>
+			<paramname>pva_mdo_pag_cbr_opc</paramname>
+			<readelem sqlname="pva_mdo_pag_cbr_opc" />
+			<htmlcontrol>
+				<tipo>combo</tipo>
+				<style>HEIGHT: 18px; WIDTH: 107px</style>
+				<cssClass>COMBO1</cssClass>
+				<grpsource put-lead-elem="Medio de Pago">CboMedioPago</grpsource>
+				<onclick></onclick>
+				<ongotfocus></ongotfocus>
+				<onchange></onchange>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="monto_prima">
+			<localtipo>N</localtipo>
+			<htmlname>txtMontoPrim</htmlname>
+			<rotulo>Monto Prima</rotulo>
+			<htmldefaultval></htmldefaultval>
+			<paramname>mnt_pag_prm</paramname>
+			<readelem sqlname="mnt_pag_prm" />
+			<htmlcontrol>
+				<tipo>text</tipo>
+				<maxlen>18</maxlen>
+				<style>HEIGHT: 18px; width: 78px; text-align: right;</style>
+				<cssClass>bonito</cssClass>
+				<numformat>n2</numformat>
+				<grpsource></grpsource>
+				<onkeypress>return numbersOnly(this, event, true);</onkeypress>
+				<ongotfocus>setPlainFieldByTag(this);</ongotfocus>
+				<onblur>formattedNumber(this, 2);</onblur>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="monto_refer">
+			<localtipo>N</localtipo>
+			<htmlname>txtMontoOpe</htmlname>
+			<rotulo>Monto</rotulo>
+			<htmldefaultval></htmldefaultval>
+			<paramname>opc_mnt_me_ref</paramname>
+			<readelem sqlname="opc_mnt_me_ref" />
+			<htmlcontrol>
+				<tipo>text</tipo>
+				<maxlen>18</maxlen>
+				<style>HEIGHT: 18px; width: 100px; text-align: right;</style>
+				<cssClass>bonito</cssClass>
+				<numformat>n2</numformat>
+				<grpsource></grpsource>
+				<onkeypress>return numbersOnly(this, event, true);</onkeypress>
+				<ongotfocus>setPlainFieldByTag(this);</ongotfocus>
+				<onblur>RecalcStrike();</onblur>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="moneda_refer">
+			<localtipo>C</localtipo>
+			<htmlname>selMonRef</htmlname>
+			<rotulo>Moneda Operación</rotulo>
+			<htmldefaultval>13</htmldefaultval>
+			<paramname>cod_me_ref</paramname>
+			<readelem sqlname="cod_me_ref" />
+			<htmlcontrol>
+				<tipo>combo</tipo>
+				<style>HEIGHT: 18px; WIDTH: 46px</style>
+				<cssClass>COMBO1</cssClass>
+				<grpsource put-lead-elem="Moneda">CboMonedas</grpsource>
+				<onchange></onchange>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="moneda_liquid">
+			<localtipo>C</localtipo>
+			<htmlname>mon</htmlname>
+			<rotulo>Moneda Liquidación</rotulo>
+			<htmldefaultval>999</htmldefaultval>
+			<paramname>cod_mon_liq</paramname>
+			<readelem sqlname="cod_mon_liq" />
+			<htmlcontrol>
+				<tipo>combo</tipo>
+				<style>HEIGHT: 18px; WIDTH: 46px</style>
+				<cssClass>COMBO1</cssClass>
+				<grpsource put-lead-elem="Moneda">CboMonedas</grpsource>
+				<onchange></onchange>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="monto_liquid">
+			<localtipo>N</localtipo>
+			<htmlname>txtMontoLiq</htmlname>
+			<rotulo>Monto Liquidación</rotulo>
+			<htmldefaultval>0</htmldefaultval>
+			<paramname>mnt_liq_opc</paramname>
+			<readelem sqlname="mnt_liq_opc" />
+			<htmlcontrol>
+				<tipo>text</tipo>
+				<maxlen>18</maxlen>
+				<style>HEIGHT: 18px; width: 100px; text-align: right;</style>
+				<cssClass>bonito</cssClass>
+				<numformat>n2</numformat>
+				<grpsource></grpsource>
+				<ongotfocus>setPlainFieldByTag(this);</ongotfocus>
+				<onblur>RecalcStrike();</onblur>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="tipo_cambio_eje">
+			<localtipo>N</localtipo>
+			<htmlname>txTipoCambioEje</htmlname>
+			<rotulo>Tipo Cambio</rotulo>
+			<htmldefaultval></htmldefaultval>
+			<paramname>opc_tip_cmb_eje</paramname>
+			<readelem sqlname="opc_tip_cmb_eje" />
+			<htmlcontrol>
+				<tipo>text</tipo>
+				<maxlen>12</maxlen>
+				<style>HEIGHT: 18px; width: 90px; text-align: right;</style>
+				<cssClass></cssClass>
+				<numformat>n2</numformat>
+				<grpsource></grpsource>
+				<onkeypress>return numbersOnly(this, event, true);</onkeypress>
+				<ongotfocus>setPlainFieldByTag(this);</ongotfocus>
+				<onblur>RecalcStrike();</onblur>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="paridad_eje">
+			<localtipo>N</localtipo>
+			<htmlname>txParEje</htmlname>
+			<rotulo>Paridad Ejercicio</rotulo>
+			<htmldefaultval>1</htmldefaultval>
+			<paramname>opc_pri_de_eje</paramname>
+			<readelem sqlname="opc_pri_de_eje" />
+			<htmlcontrol>
+				<tipo>text</tipo>
+				<maxlen>12</maxlen>
+				<style>HEIGHT: 18px; width: 60px; text-align: right;</style>
+				<cssClass></cssClass>
+				<numformat>n4</numformat>
+				<grpsource></grpsource>
+				<onkeypress>return numbersOnly(this, event, true);</onkeypress>
+				<ongotfocus>setPlainFieldByTag(this);</ongotfocus>
+				<onblur>formattedNumber(this, 4);</onblur>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="precio_ejercicio">
+			<localtipo>N</localtipo>
+			<htmlname>txPreEjer</htmlname>
+			<rotulo>Precio de Ejercicio</rotulo>
+			<htmldefaultval></htmldefaultval>
+			<paramname>opc_prc_de_eje</paramname>
+			<readelem sqlname="opc_prc_de_eje" />
+			<htmlcontrol>
+				<tipo>text</tipo>
+				<maxlen>15</maxlen>
+				<style>HEIGHT: 18px; width: 110px; text-align: right;</style>
+				<cssClass></cssClass>
+				<numformat>n0</numformat>
+				<grpsource></grpsource>
+				<onkeypress>return numbersOnly(this, event, true);</onkeypress>
+				<ongotfocus>setPlainFieldByTag(this);</ongotfocus>
+				<onblur>formattedNumber(this, 0);</onblur>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="tipo_cambio_refe">
+			<localtipo>N</localtipo>
+			<htmlname>txTipoCambioRefe</htmlname>
+			<rotulo>Tipo Cambio Referencial</rotulo>
+			<htmldefaultval></htmldefaultval>
+			<paramname>opc_tip_cmb_ref</paramname>
+			<readelem sqlname="opc_tip_cmb_ref" />
+			<htmlcontrol>
+				<tipo>text</tipo>
+				<maxlen>12</maxlen>
+				<style>HEIGHT: 18px; width: 90px; text-align: right;</style>
+				<cssClass></cssClass>
+				<numformat>n2</numformat>
+				<onblur>formattedNumber(this, 2);</onblur>
+				<grpsource></grpsource>
+				<onkeypress>return numbersOnly(this, event, true);</onkeypress>
+				<ongotfocus>setPlainFieldByTag(this);</ongotfocus>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="paridad_refer">
+			<localtipo>N</localtipo>
+			<htmlname>txParRef</htmlname>
+			<rotulo>Paridad Referencial</rotulo>
+			<htmldefaultval>1</htmldefaultval>
+			<paramname>opc_pri_ref</paramname>
+			<readelem sqlname="opc_pri_ref" />
+			<htmlcontrol>
+				<tipo>text</tipo>
+				<maxlen>12</maxlen>
+				<style>HEIGHT: 18px; width: 60px; text-align: right;</style>
+				<cssClass></cssClass>
+				<numformat>n4</numformat>
+				<onblur>formattedNumber(this, 4);</onblur>
+				<grpsource></grpsource>
+				<onkeypress>return numbersOnly(this, event, true);</onkeypress>
+				<ongotfocus>setPlainFieldByTag(this);</ongotfocus>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="fecha_neg">
+			<localtipo>D</localtipo>
+			<htmlname>FechaNeg</htmlname>
+			<htmldefaultval></htmldefaultval>
+			<rotulo>Fecha Negociación</rotulo>
+			<paramname>opc_fec_ngc</paramname>
+			<readelem sqlname="opc_fec_ngc"/>
+			<htmlcontrol>
+				<tipo>DateCbo</tipo>
+				<cssClass>bonito</cssClass>
+				<style>HEIGHT: 18px; WIDTH: 107px</style>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="fecha_vence">
+			<localtipo>D</localtipo>
+			<htmlname>FechaVenc</htmlname>
+			<htmldefaultval></htmldefaultval>
+			<rotulo>Fecha Vencimianto</rotulo>
+			<paramname>opc_fec_vct</paramname>
+			<readelem sqlname="opc_fec_vct"/>
+			<htmlcontrol>
+				<tipo>DateCbo</tipo>
+				<cssClass>bonito</cssClass>
+				<style>HEIGHT: 18px; WIDTH: 107px</style>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="trader_name">
+			<localtipo>C</localtipo>
+			<htmlname>txOperador</htmlname>
+			<htmldefaultval use="usuario"></htmldefaultval>
+			<rotulo>Operador</rotulo>
+			<paramname>cod_usr_acz</paramname>
+			<readelem sqlname="cod_usr_acz"/>
+			<htmlcontrol>
+				<tipo>text</tipo>
+				<maxlen>10</maxlen>
+				<style>HEIGHT: 18px; width: 110px;</style>
+				<cssClass></cssClass>
+				<grpsource></grpsource>
+				<onclick></onclick>
+				<ongotfocus></ongotfocus>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="hora_vence">
+			<localtipo>C</localtipo>
+			<htmlname>HoraVenc</htmlname>
+			<htmldefaultval>11:00</htmldefaultval>
+			<rotulo>Hora Ejercicio</rotulo>
+			<paramname>opc_hrr_eje</paramname>
+			<readelem sqlname="opc_hrr_eje"/>
+			<htmlcontrol>
+				<tipo>text</tipo>
+				<maxlen>8</maxlen>
+				<style>HEIGHT: 18px; width: 50px;</style>
+				<numformat>hh:mm</numformat>
+				<cssClass></cssClass>
+				<grpsource></grpsource>
+				<onclick></onclick>
+				<ongotfocus></ongotfocus>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="zona_ejerc">
+			<localtipo>C</localtipo>
+			<htmlname>txLZona</htmlname>
+			<rotulo>Zona Ejercicio</rotulo>
+			<htmldefaultval>SCL</htmldefaultval>
+			<paramname>opc_lzn_eje</paramname>
+			<readelem sqlname="opc_lzn_eje" />
+			<htmlcontrol>
+				<tipo>text</tipo>
+				<maxlen>20</maxlen>
+				<style>HEIGHT: 18px; width: 50px;</style>
+				<cssClass></cssClass>
+				<grpsource></grpsource>
+				<onclick></onclick>
+				<ongotfocus></ongotfocus>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="opta">
+			<localtipo>C</localtipo>
+			<htmlname>ckOpta</htmlname>
+			<rotulo>Opta Ejercicio</rotulo>
+			<htmldefaultval>1</htmldefaultval>
+			<paramname>opc_ta</paramname>
+			<htmlcontrol>
+				<tipo align="right">check</tipo>
+				<style>width: 50px;</style>
+				<cssClass linkClass="linkaleta">FilaDespliegue</cssClass>
+				<grpsource></grpsource>
+				<onclick></onclick>
+				<ongotfocus></ongotfocus>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="moneda_opta">
+			<localtipo>C</localtipo>
+			<htmlname>rbOpta</htmlname>
+			<rotulo>Recanto Moneda</rotulo>
+			<htmldefaultval>142</htmldefaultval>
+			<paramname>cod_mon_prm</paramname>
+			<readelem sqlname="cod_mon_prm2" />
+			<htmlcontrol>
+				<tipo>radio</tipo>
+				<style>WIDTH: 46px</style>
+				<cssClass linkClass="linkaleta">FilaDespliegue</cssClass>
+				<grpsource>CboMonedas</grpsource>
+				<onclick>EnPerform('lista_uno=istauno');</onclick>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="condiciones">
+			<localtipo>C</localtipo>
+			<htmlname>Condiciones</htmlname>
+			<htmldefaultval use="CondicionesCCIcliente"></htmldefaultval>
+			<rotulo>Condiciones Operación</rotulo>
+			<paramname>cci_gls_ope</paramname>
+			<readelem sqlname="cci_gls_ope"/>
+			<htmlcontrol>
+				<tipo>bigtext</tipo>
+				<maxlen>7000</maxlen>
+				<rows>6</rows>
+				<cols>60</cols>
+				<style>HEIGHT: 180px; width: 500px;</style>
+				<numformat>pre</numformat>
+				<cssClass>bonito</cssClass>
+				<grpsource></grpsource>
+				<onclick></onclick>
+				<ongotfocus></ongotfocus>
+			</htmlcontrol>
+		</fieldelem>
+		<fieldelem localname="frases">
+			<localtipo>C</localtipo>
+			<htmlname>lacuna</htmlname>
+			<htmldefaultval use="FrasesOperacion"></htmldefaultval>
+			<rotulo>Consideraciones de Pago</rotulo>
+			<paramname>cci_frm_pag</paramname>
+			<readelem sqlname="cci_frm_pag"/>
+			<htmlcontrol>
+				<tipo>textlist</tipo>
+				<style>HEIGHT: 180px; width: 500px;</style>
+				<cssClass>bonito</cssClass>
+				<list setid="Set_1">
+					<keyelem localname="keydata">
+						<localtipo>T</localtipo>
+						<readelem sqlname="esc_idd" />
+					</keyelem>
+					<rawelem localname="rawdata">
+						<localtipo>T</localtipo>
+						<htmlname>crudo</htmlname>
+						<dispformat></dispformat>
+						<readelem sqlname="esc_nom" />
+					</rawelem>
+					<colelem localname="eluno">
+						<localtipo>C</localtipo>
+						<htmlname>uno</htmlname>
+						<dispformat>c:8</dispformat>
+						<readelem sqlname="esc_uno" />
+						<htmlcontrol>
+							<tipo>text</tipo>
+							<cssClass>bonito</cssClass>
+						</htmlcontrol> 
+					</colelem>
+					<colelem localname="eldos">
+						<localtipo>T</localtipo>
+						<htmlname>dos</htmlname>
+						<dispformat></dispformat>
+						<readelem sqlname="esc_dos" />
+						<htmlcontrol>
+							<tipo>text</tipo>
+							<cssClass>bonito</cssClass>
+						</htmlcontrol> 
+					</colelem>
+				</list>
+			</htmlcontrol>
+		</fieldelem>
+	</elementos>
+	<reglas>
+		<regelem>
+			<test>NoVacio</test>
+			<field name="frases" />
+			<mensaje>EL Forma de Pago no puede quedar vacío</mensaje>
+		</regelem>
+		<regelem>
+			<test>NoVacio</test>
+			<field name="rut_contraparte" />
+			<mensaje>EL Rut de la Contraparte no puede quedar vacío</mensaje>
+		</regelem>
+		<regelem>
+			<test>VerifRut</test>
+			<field name="rut_contraparte" />
+			<mensaje>EL Rut de la Contraparte está Mal Formado</mensaje>
+		</regelem>
+		<regelem>
+			<test>DosNoVacio</test>
+			<field name="rut_contraparte" />
+			<field name="id_contraparte">0</field>
+			<mensaje>Debe Definir El Identificador de la Contraparte</mensaje>
+		</regelem>
+		<regelem>
+			<test>NoVacio</test>
+			<field name="fecha_neg" />
+			<mensaje>La Fecha de Negociación no puede quedar vacia</mensaje>
+		</regelem>
+		<regelem>
+			<test>NoVacio</test>
+			<field name="fecha_vence" />
+			<mensaje>La Fecha Vencimiento no puede quedar vacia</mensaje>
+		</regelem>
+		<regelem>
+			<test>MustNumero</test>
+			<field name="monto_refer" />
+			<mensaje>El Monto Contrato debe ser numerico</mensaje>
+		</regelem>
+		<regelem>
+			<test>NoVacio</test>
+			<field name="monto_refer">0</field>
+			<mensaje>El Monto Contrato debe tener un valor &gt; 0</mensaje>
+		</regelem>
+		<regelem>
+			<test>MustNumero</test>
+			<field name="tipo_cambio_eje" />
+			<mensaje>El Tipo de Cambio debe ser numerico</mensaje>
+		</regelem>
+		<regelem>
+			<test>NoVacio</test>
+			<field name="monto_prima">0</field>
+			<mensaje>El Monto de la Prima debe tener un valor &gt; 0</mensaje>
+		</regelem>
+		<regelem>
+			<test>NoVacio</test>
+			<field name="tipo_cambio_eje">0</field>
+			<mensaje>El Tipo de Cambio debe tener un valor &gt; 0</mensaje>
+		</regelem>
+		<regelem>
+			<test>MustBiggerDate</test>
+			<field name="fecha_vence" />
+			<field name="fecha_neg" />
+			<mensaje>La Fecha Vencimiento debe ser Mayor a la de Negociación</mensaje>
+		</regelem>
+		<regelem>
+			<test>MustBiggerDate</test>
+			<field name="fecha_vence" />
+			<field name="fecha_neg" />
+			<mensaje>La Fecha Vencimiento debe ser Mayor a la de Negociación</mensaje>
+		</regelem>
+	</reglas>
+</REG_FXG>

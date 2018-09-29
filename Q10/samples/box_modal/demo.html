@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>DEMO BOX MODAL</title>
+	<link rel="stylesheet" type="text/css" href="box_modal.css"/>
+	<script type="text/javascript" src="box_modal.js"></script>
+	<style type="text/css"> 
+		body {margin:auto;padding:0;}
+	</style>
+</head>
+<body onscroll="moveBox();">
+<center>
+<h1>TITULO DE PRUEBA</h1>
+<p>texto de prueba</p>
+<a href="javascript:openBox('demo_contenido.html',false);">ver ejemplo</a>
+</center>
+
+<!-- DIV PARA EL BOX MODAL AL FINAL DEL BODY-->
+<div id="capafade"></div>
+<div id="boxmodal">	
+	<div id="boxclose" ondblclick="maxBox();"><a href="javascript:minBox();">[-]</a> | <a href="javascript:maxBox();">[+]</a> | <a href="javascript:closeBox();">[X]</a></div>
+	<div id="boxcontent"><div id="boxtext"></div></div>	
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<list setid="Set_0" servicio="lista_dos">
+	<keyelem localname="keydata">
+		<localtipo>T</localtipo>
+		<readelem sqlname="kiph" />
+	</keyelem>
+	<rawelem localname="rawdata">
+		<localtipo>T</localtipo>
+		<htmlname>crudo</htmlname>
+		<dispformat></dispformat>
+		<readelem sqlname="frs_msg" />
+	</rawelem>
+	<colelem localname="eluno">
+		<localtipo>C</localtipo>
+		<htmlname>uno</htmlname>
+		<rotulo>the number uno</rotulo>
+		<dispformat>c:8</dispformat>
+		<readelem sqlname="esc_uno" />
+		<htmlcontrol>
+			<tipo>text</tipo>
+			<cssClass>bonito</cssClass>
+		</htmlcontrol> 
+	</colelem>
+	<colelem localname="eldos">
+		<localtipo>T</localtipo>
+		<htmlname>dos</htmlname>
+		<rotulo>le numero deux</rotulo>
+		<dispformat></dispformat>
+		<readelem sqlname="kiph" />
+		<htmlcontrol>
+			<tipo>text</tipo>
+			<cssClass>bonito</cssClass>
+		</htmlcontrol> 
+	</colelem>
+</list>

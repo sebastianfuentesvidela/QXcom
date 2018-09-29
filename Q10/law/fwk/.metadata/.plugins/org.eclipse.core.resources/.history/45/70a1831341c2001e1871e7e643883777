@@ -1,0 +1,154 @@
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.Socket;
+import java.net.SocketAddress;
+import java.net.SocketTimeoutException;
+import java.net.UnknownHostException;
+
+
+public class ServiceClient {
+
+	private StringBuilder sbRequest = new StringBuilder();
+	private String sReply = null;
+	private int _iColNumber = 0;
+	private int _iCurrentRow = 0;
+	
+	private static Socket s = null;
+	private static OutputStream os = null;
+	
+	public void Service(String sServiceName)
+	{
+		sbRequest.append("<S name=\"");
+		sbRequest.append(sServiceName);
+		sbRequest.append("\">\r\n");
+	}
+		
+	public void Parameter(String sName, String sValue)
+	{
+		sbRequest.append("<P name=\"");
+		sbRequest.append(sName);
+		sbRequest.append("\">");
+		sbRequest.append(sValue);
+		sbRequest.append("</P>\r\n");
+	}
+	
+	public void BeginTable( String sName, int iNumCols, String [] asColName )
+	{
+		sbRequest.append("<T name=\">");
+		sbRequest.append(sName);
+		sbRequest.append("\" ");
+		sbRequest.append("ncol=\"");
+		sbRequest.append("iNumCols");
+		sbRequest.append("\">\r\n");
+		
+	}
+	
+	public void EndTable(String sName)
+	{
+		sbRequest.append("ET:");
+		sbRequest.append(sName);
+		sbRequest.append("\n");
+	}
+	
+	public void AddRow(String [] aValue)
+	{
+		if ( aValue.length != _iColNumber )
+			System.out.println();
+		_iCurrentRow++;
+		sbRequest.append("R[");
+		sbRequest.append(_iCurrentRow);
+		sbRequest.append("]:");
+
+		for (int i=0; i<_iColNumber; i++ )
+		{
+			sbRequest.append(aValue[i].trim());
+			sbRequest.append("\t");
+		}
+		sbRequest.append("\n");
+
+	}
+	
+	public String getString(String sName)
+	{
+		String sToken = "S:[" + sName.length() + "]=";
+		
+		int iBegin = sReply.indexOf(sToken);
+		int iEnd = sReply.indexOf("S",iBegin);
+		return(sReply.substring(iBegin, iEnd));
+	}
+	
+	
+	public boolean Connect(String sHost, int iPort)
+	{
+		boolean bRetVal = true;
+		
+		 // Create a socket with a timeout
+	    try 
+	    {
+	        InetAddress addr = InetAddress.getByName(sHost);
+	        int port = iPort;
+	        SocketAddress sockaddr = new InetSocketAddress(addr, port);
+	    
+	        // Create an unbound socket
+	        s = new Socket();
+	    
+	        // This method will block no more than timeoutMs.
+	        // If the timeout occurs, SocketTimeoutException is thrown.
+	        int timeoutMs = 2000;   // 2 seconds
+	        s.connect(sockaddr, timeoutMs);
+	        os = s.getOutputStream();
+		    
+	    } 
+	    catch (UnknownHostException e) 
+	    {
+	    	System.out.println("UNKNOWN HOST");
+	    	bRetVal = false;
+	    } 
+	    catch (SocketTimeoutException e) 
+	    {
+	    	System.out.println("TIMEOUT");
+	    	bRetVal = false;
+	    } 
+	    catch (IOException e) 
+	    {
+	    	System.out.println("IO_EXCEPTION");
+	    	bRetVal = false;
+	    }
+		
+        return bRetVal;
+		
+		
+	}
+	
+	private static void SendTCPMessage( OutputStream os, String sMessage)
+	{
+		
+		byte[] byteArray = sMessage.getBytes();
+		byte[] byteLength = intToByteArray(byteArray.length);
+		
+		System.out.println(sMessage);
+		System.out.println("len=" + byteArray.length);
+        
+        try {
+        	os.write(byteLength);
+        	os.write(byteArray);
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	private static byte[] intToByteArray(int value) 
+	{
+        return new byte[] {
+                (byte)(value >>> 24),
+                (byte)(value >>> 16),
+                (byte)(value >>> 8),
+                (byte)value };
+	}
+	
+	
+}

@@ -1,0 +1,59 @@
+
+public class XML1Formatter implements XMLFormat 
+{
+	
+	StringBuilder sb = null;
+	
+	public XML1Formatter()
+	{
+		sb = new StringBuilder();
+	}
+
+	public void AddColDef(String name, String type) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void AddDataRow() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void CloseResultSet() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void CloseService() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void OpenResultSet(String name) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void OpenService(String sName, String retFormat, String caching) {
+		sb.append("<service name=\"");
+		sb.append(sName);
+		sb.append("\"");
+	}
+
+	public void Parameter(String name) {
+		sb.append("<service name=\"");
+		sb.append(sName);
+		sb.append("\"");
+	}
+
+	@Override
+	public void ResultValue(String name, String value) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

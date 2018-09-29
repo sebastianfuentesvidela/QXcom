@@ -1,0 +1,10 @@
+
+public interface MessageSerializer {
+
+	void BeginXML();
+	void EndXML();
+	void BeginService(String sName, String sRetFormat);
+	void EndService();
+	void Parameter(String sName,String sValue);
+	
+}

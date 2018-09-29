@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<REG_FXG>
+	<tiporegistro>HOMEPAGE</tiporegistro>
+	<usagemode>PROCLIST</usagemode>
+	<showtempl>xslt/homepage.xslt</showtempl>
+	<errortempl>xslt/bop_errorbop.xslt</errortempl>
+	<head service="getheadparams" param="header">
+		<headelem localname="fecha_negocio">
+			<localtipo>D</localtipo>
+			<htmlname>FProceso</htmlname>
+			<rotulo>Fecha Proceso</rotulo>
+			<htmldefaultval></htmldefaultval>
+			<readelem sqlname="fec_pct_pnd" />
+			<htmlcontrol>
+				<tipo>hidden</tipo>
+			</htmlcontrol>
+		</headelem>
+		<headelem localname="estado_negocio">
+			<localtipo>N</localtipo>
+			<htmlname>EstadoNeg</htmlname>
+			<rotulo>Estado Negocio</rotulo>
+			<htmldefaultval>0</htmldefaultval>
+			<readelem sqlname="est_neg" />
+			<htmlcontrol>
+				<tipo>hidden</tipo>
+			</htmlcontrol>
+		</headelem>
+		<headelem localname="estado_escenario">
+			<localtipo>N</localtipo>
+			<htmlname>hidEstEsc</htmlname>
+			<rotulo>Estado Escenario</rotulo>
+			<htmldefaultval>0</htmldefaultval>
+			<readelem sqlname="est_val" />
+			<htmlcontrol>
+				<tipo>hidden</tipo>
+			</htmlcontrol>
+		</headelem>
+		<headelem localname="last_escenario">
+			<localtipo>N</localtipo>
+			<htmlname>LastScenar</htmlname>
+			<rotulo></rotulo>
+			<htmldefaultval>0</htmldefaultval>
+			<readelem sqlname="max_esc" />
+			<htmlcontrol>
+				<tipo>hidden</tipo>
+			</htmlcontrol>
+		</headelem>
+		<headelem localname="fechareporte">
+			<localtipo>C</localtipo>
+			<htmlname>hoyreporte</htmlname>
+			<rotulo></rotulo>
+			<htmldefaultval use="hoydia"/>
+			<htmlcontrol>
+				<tipo>text</tipo>
+				<numformat>hh:mm</numformat>
+				<cssClass></cssClass>
+				<grpsource></grpsource>
+				<onclick></onclick>
+				<ongotfocus></ongotfocus>
+			</htmlcontrol>
+		</headelem>
+	</head>
+</REG_FXG>

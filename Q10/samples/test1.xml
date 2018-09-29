@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<formelements>
+<urielem><input name="callpage" type="hidden" value="/qxforms/operator?bop_crea_opvan" /></urielem>
+<form_action><input name="form_action" type="hidden" /></form_action>
+<caller doctype="OPCION" idd="" ><input name="caller" type="hidden" value="" /></caller>
+<mensaje></mensaje><user name="cxcccdff" session="8D538C82E11F961705E26B423C524E01" cliente="cxcccdff" profile="admin" />
+<formbuttons>
+<boton campo="Limpia"><INPUT name="Limpia" type="button" value="Limpiar" class="clsBoton" style="" onclick="CleanForm()" /></boton>
+<boton campo="default_action"><INPUT name="default_action" type="button" value="Grabar Opción" class="clsBoton" style="" onclick="SubmitEvent(this, 'default_action');" /></boton></formbuttons>
+<head campo="fecha_negocio">
+<descript>Fecha Proceso</descript>
+<htmltext><input type="hidden" name="FProceso" id="FProceso" value="20060828 00:00:00" /></htmltext>
+<valor>28/Sep/2006</valor>
+<dato>20060828 00:00:00</dato>
+</head>
+<elem campo="zona_ejerc">
+<descript>Zona Ejercicio</descript>
+<htmltext><input type="text" name="txLZona" id="txLZona" class="" style="HEIGHT: 18px; width: 50px;" value="SCL" maxlength="20" /></htmltext>
+<valor>SCL</valor>
+<dato>SCL</dato>
+</elem>
+<elem campo="tipo_ope">
+<descript>Tipo Operación</descript>
+<htmltext><select name="selTipOpe" id="selTipOpe" class="COMBO1" style="HEIGHT: 18px; WIDTH: 107px" onchange="ReparteComprayVende();" >
+<option value="">-Tipo Operación</option>
+<option selected="yes" value="1">Compra</option>
+<option value="2">Venta</option></select></htmltext>
+<valor>Compra</valor>
+<dato>1</dato>
+</elem>
+<elem campo="tipo_contraparte">
+<descript>Tipo Contraparte</descript>
+<htmltext><input type="hidden" name="hidTipContr" id="hidTipContr" value="1" /></htmltext>
+<valor>Bco</valor>
+<dato>1</dato>
+</elem>
+<elem campo="tipo_cambio_refe">
+<descript>Tipo Cambio Referencial</descript>
+<htmltext>
+<elem campo="plazo_residual">
+<descript>Plazo Residual</descript>
+<htmltext><label name="PlResidual" id="PlResidual" class="" style="FONT-SIZE: 12px; COLOR: maroon; FONT-FAMILY: Arial; ">0</label></htmltext>
+<valor>0</valor>
+<dato>0</dato>
+</elem>
+<elem campo="moneda_refer">
+<descript>Moneda Operación</descript>
+<htmltext><select name="selMonRef" id="selMonRef" class="COMBO1" style="HEIGHT: 18px; WIDTH: 46px" >
+<option value="">-Moneda</option>
+<option selected="yes" value="13">USD</option>
+<option value="142">EUR</option>
+<option value="999">CLP</option></select></htmltext>
+<valor>USD</valor>
+<dato>13</dato>
+</elem>
+<elem campo="trader_name">
+<descript>Operador</descript>
+<htmltext><input type="text" name="txOperador" id="txOperador" class="" style="HEIGHT: 18px; width: 110px;" value="" maxlength="10" /></htmltext>
+<valor></valor>
+<dato></dato>
+</elem>
+<elem campo="tipo_cambio_eje">
+<descript>Tipo Cambio</descript>
+<htmltext>
+<elem campo="tipo_cartera">
+<descript>Cartera</descript>
+<htmltext><select name="optTipoCartera" id="optTipoCartera" class="COMBO1" style="HEIGHT: 18px; WIDTH: 180px" onchange="validaPar()" >
+<option value="">-Escoger Cartera</option>
+<option selected="yes" value="1">Posicion</option>
+<option value="2">Intermediacion</option></select></htmltext>
+<valor>Posicion</valor>
+<dato>1</dato>
+</elem>
+<elem campo="paridad_eje">
+<descript>Paridad Ejercicio</descript>
+<htmltext><input type="text" name="txParEje" id="txParEje" class="" style="HEIGHT: 18px; width: 60px; text-align: right;" value="1.0000" maxlength="12" ongotfocus="setPlainFieldByTag(this);" onblur="formattedNumber(this, 4);" onkeypress="return numbersOnly(this, event, true);" /></htmltext>
+<valor>1.0000</valor>
+<dato>1</dato>
+</elem>
+<elem campo="estilo_opcion">
+<descript>Estilo Opción</descript>
+<htmltext><select name="selEstOpcion" id="selEstOpcion" class="COMBO1" style="HEIGHT: 18px; WIDTH: 107px" >
+<option value="">-Estilo</option>
+<option value="1">Americana</option>
+<option selected="yes" value="2">Europea</option>
+<option value="3">Otra</option></select></htmltext>
+<valor>Europea</valor>
+<dato>2</dato>
+</elem>
+<elem campo="moneda_liquid">
+<descript>Moneda Liquidación</descript>
+<htmltext><select name="mon" id="mon" class="COMBO1" style="HEIGHT: 18px; WIDTH: 46px" >
+<option value="">-Moneda</option>
+<option value="13">USD</option>
+<option value="142">EUR</option>
+<option selected="yes" value="999">CLP</option></select></htmltext>
+<valor>CLP</valor>
+<dato>999</dato>
+</elem>
+<elem campo="monto_liquid">
+<descript>Monto Liquidación</descript>
+<htmltext><input type="text" name="txtMontoLiq" id="txtMontoLiq" class="bonito" style="HEIGHT: 18px; width: 100px; text-align: right;" value="0.00" maxlength="18" ongotfocus="setPlainFieldByTag(this);" onblur="RecalcStrike();" /></htmltext>
+<valor>0.00</valor>
+<dato>0</dato>
+</elem>
+<elem campo="nombre_comprador">
+<descript>Nombre Comprador</descript>
+<htmltext><label name="NomCompra" id="NomCompra" class="" style="FONT-SIZE: 12px; COLOR: maroon; FONT-FAMILY: Arial; HEIGHT: 18px; WIDTH: 107px">BancoEstado</label></htmltext>
+<valor>BancoEstado</valor>
+<dato>BancoEstado</dato>
+</elem>
+<elem campo="monto_refer">
+<descript>Monto</descript>
+<htmltext>
+<elem campo="nombre_vendedor">
+<descript>Nombre Vendedor</descript>
+<htmltext><label name="NomVende" id="NomVende" class="" style="FONT-SIZE: 12px; COLOR: maroon; FONT-FAMILY: Arial; HEIGHT: 18px; WIDTH: 107px"></label></htmltext>
+<valor></valor>
+<dato></dato>
+</elem>
+<elem campo="id_contraparte">
+<descript>ID Contraparte</descript>
+<htmltext><input type="hidden" name="cliid_contr" id="cliid_contr" value="" /></htmltext>
+<valor></valor>
+<dato></dato>
+</elem>
+<elem campo="nombre_contraparte">
+<descript>Nombre Contraparte</descript>
+<htmltext><label name="NomContrap" id="NomContrap" class="" style="FONT-SIZE: 12px; COLOR: maroon; FONT-FAMILY: Arial; HEIGHT: 18px; WIDTH: 107px">-No Definido-</label></htmltext>
+<valor>-No Definido-</valor>
+<dato>-No Definido-</dato>
+</elem>
+<elem campo="medio_pago_prima">
+<descript>Medio Pago Prima</descript>
+<htmltext><select name="selMedPPrima" id="selMedPPrima" class="COMBO1" style="HEIGHT: 18px; WIDTH: 107px" >
+<option value="">-Medio de Pago</option>
+<option value="2">CHEQUE</option>
+<option value="3">VALE VISTA</option>
+<option value="4">VALE CAMARA</option>
+<option value="7">TRANS 24</option>
+<option value="8">TRANS 48</option>
+<option value="9">CHEQUE DOLAR</option>
+<option value="10">TRANS HOY</option>
+<option value="15">OTRAS OFICINAS</option>
+<option value="17">TRANS 72</option>
+<option value="21">CUENTA CORRIENTE</option>
+<option value="28">CUENTA AHORRO</option>
+<option value="41">SPAV T+0</option>
+<option value="42">SPAV T+1</option>
+<option value="43">SPAV T+2</option>
+<option value="44">SPAV T+3</option>
+<option value="45">SPAV T+4</option>
+<option value="46">SPAV T+5</option></select></htmltext>
+<valor>null</valor>
+<dato>1</dato>
+</elem>
+<elem campo="modalidad_cum">
+<descript>Modalidad Cumplimiento</descript>
+<htmltext><select name="selModalid" id="selModalid" class="COMBO1" style="HEIGHT: 18px; WIDTH: 107px" >
+<option value="">-Modalidad</option>
+<option selected="yes" value="1">Entrega Fisica</option>
+<option value="2">Compensacion</option></select></htmltext>
+<valor>Entrega Fisica</valor>
+<dato>1</dato>
+</elem>
+<elem campo="paridad_refer">
+<descript>Paridad Referencial</descript>
+<htmltext><input type="text" name="txParRef" id="txParRef" class="" style="HEIGHT: 18px; width: 60px; text-align: right;" value="1.0000" maxlength="12" ongotfocus="setPlainFieldByTag(this);" onblur="formattedNumber(this, 4);" onkeypress="return numbersOnly(this, event, true);" /></htmltext>
+<valor>1.0000</valor>
+<dato>1</dato>
+</elem>
+<elem campo="tipo_opcion">
+<descript>Tipo Opción</descript>
+<htmltext><select name="selTipOpcion" id="selTipOpcion" class="COMBO1" style="HEIGHT: 18px; WIDTH: 107px" >
+<option value="">-Tipo Opción</option>
+<option selected="yes" value="1">Call</option>
+<option value="2">Put</option></select></htmltext>
+<valor>Call</valor>
+<dato>1</dato>
+</elem>
+<elem campo="fecha_neg">
+<descript>Fecha Negociación</descript>
+<htmltext><input type="text" disabled="yes" name="show_FechaNeg" id="show_FechaNeg" class="bonito" style="HEIGHT: 18px; WIDTH: 107px" maxlength="11" value="" onclick=" selectfec('FechaNeg')" ondoubleclick="selectfec('FechaNeg')" /><input type="hidden" name="FechaNeg" id="FechaNeg" value="" /><a href="javascript: selectfec('FechaNeg')"><img border="0" src="img/busca.gif"/></a></htmltext>
+<valor></valor>
+<dato></dato>
+</elem>
+<elem campo="opta">
+<descript>Opta Ejercicio</descript>
+<htmltext><input type="checkbox" name="ckOpta" id="ckOpta" value="1" class="FilaDespliegue" CHECKED="yes" /><a class="linkaleta" style="width: 50px;" href="javascript:;" onclick="atCheck('ckOpta'); " >Opta Ejercicio</a></htmltext>
+<valor>1</valor>
+<dato>1</dato>
+</elem>
+<elem campo="moneda_opta">
+<descript>Recanto Moneda</descript>
+<htmltext>
+<table><tr><td nowrap="yes" class="FilaDespliegue" style="WIDTH: 46px"><input type="radio" name="rbOpta" id="rbOpta" class="FilaDespliegue" value="13" onclick="EnPerform('lista_uno=istauno');"  /> <a href="javascript: setRadio('rbOpta', 0);EnPerform('lista_uno=istauno');" class="linkaleta">USD</a></td><td nowrap="yes" class="FilaDespliegue" style="WIDTH: 46px"><input type="radio" name="rbOpta" id="rbOpta" class="FilaDespliegue" value="142" CHECKED="yes" onclick="EnPerform('lista_uno=istauno');"  /> <a href="javascript: setRadio('rbOpta', 1);EnPerform('lista_uno=istauno');" class="linkaleta">EUR</a></td><td nowrap="yes" class="FilaDespliegue" style="WIDTH: 46px"><input type="radio" name="rbOpta" id="rbOpta" class="FilaDespliegue" value="999" onclick="EnPerform('lista_uno=istauno');"  /> <a href="javascript: setRadio('rbOpta', 2);EnPerform('lista_uno=istauno');" class="linkaleta">CLP</a></td></tr></table></htmltext>
+<valor>EUR</valor>
+<dato>142</dato>
+</elem>
+<elem campo="clase_opcion">
+<descript>Clase Operacion</descript>
+<htmltext><input type="hidden" name="selClaOpc" id="selClaOpc" value="1" /></htmltext>
+<valor>1</valor>
+<dato>1</dato>
+</elem>
+<elem campo="hora_vence">
+<descript>Hora Ejercicio</descript>
+<htmltext><input type="text" name="HoraVenc" id="HoraVenc" class="" style="HEIGHT: 18px; width: 50px;" value="11:00" maxlength="8" /></htmltext>
+<valor>11:00</valor>
+<dato>11:00</dato>
+</elem>
+<elem campo="rut_contraparte">
+<descript>Rut Contraparte</descript>
+<htmltext><input type="text" name="rut_contr" id="rut_contr" class="bonito" style="HEIGHT: 18px; width: 100px; text-align: right;" value="" maxlength="14" onblur="SetCurrentCliente();" onkeypress="chekarut(this, event);" /></htmltext>
+<valor></valor>
+<dato></dato>
+</elem>
+<elem campo="moneda_pprima">
+<descript>Moneda de Pago Prima</descript>
+<htmltext><select name="selMonds" id="selMonds" class="COMBO1" style="HEIGHT: 18px; WIDTH: 46px" >
+<option value="">-Moneda</option>
+<option value="13">USD</option>
+<option value="142">EUR</option>
+<option selected="yes" value="999">CLP</option></select></htmltext>
+<valor>CLP</valor>
+<dato>999</dato>
+</elem>
+<elem campo="condiciones">
+<descript>Condiciones Operación</descript>
+<htmltext><textarea name="Condiciones" id="Condiciones" class="bonito" style="HEIGHT: 180px; width: 500px;" rows="" cols="" onKeyUp="charAlert(this, 7000);" ></textarea></htmltext>
+<valor></valor>
+<dato></dato>
+</elem>
+<elem campo="frases">
+<descript>Consideraciones de Pago</descript>
+<htmltext>
+</htmltext>
+<valor></valor>
+<dato></dato>
+</elem>
+<elem campo="fecha_vence">
+<descript>Fecha Vencimianto</descript>
+<htmltext><input type="text" disabled="yes" name="show_FechaVenc" id="show_FechaVenc" class="bonito" style="HEIGHT: 18px; WIDTH: 107px" maxlength="11" value="" onclick=" selectfec('FechaVenc')" ondoubleclick="selectfec('FechaVenc')" /><input type="hidden" name="FechaVenc" id="FechaVenc" value="" /><a href="javascript: selectfec('FechaVenc')"><img border="0" src="img/busca.gif"/></a></htmltext>
+<valor></valor>
+<dato></dato>
+</elem>
+<elem campo="tipo_oper_val">
+<descript>Tipo Operac</descript>
+<htmltext><input type="hidden" name="hidTipOpe" id="hidTipOpe" value="1" /></htmltext>
+<valor>1</valor>
+<dato>1</dato>
+</elem>
+<elem campo="nro_opcion">
+<descript>Folio Opción</descript>
+<htmltext><label name="Folio" id="Folio" class="" style="FONT-SIZE: 12px; COLOR: maroon; FONT-FAMILY: Arial; ">0</label></htmltext>
+<valor>0</valor>
+<dato>0</dato>
+</elem>
+<elem campo="monto_prima">
+<descript>Monto Prima</descript>
+<htmltext>
+<elem campo="precio_ejercicio">
+<descript>Precio de Ejercicio</descript>
+<htmltext>
+<elem campo="medio_pago_liqopcion">
+<descript>Medio Pago Opción</descript>
+<htmltext><select name="selMedPLOp" id="selMedPLOp" class="COMBO1" style="HEIGHT: 18px; WIDTH: 107px" >
+<option value="">-Medio de Pago</option>
+<option value="2">CHEQUE</option>
+<option value="3">VALE VISTA</option>
+<option value="4">VALE CAMARA</option>
+<option value="7">TRANS 24</option>
+<option value="8">TRANS 48</option>
+<option value="9">CHEQUE DOLAR</option>
+<option value="10">TRANS HOY</option>
+<option value="15">OTRAS OFICINAS</option>
+<option value="17">TRANS 72</option>
+<option value="21">CUENTA CORRIENTE</option>
+<option value="28">CUENTA AHORRO</option>
+<option value="41">SPAV T+0</option>
+<option value="42">SPAV T+1</option>
+<option value="43">SPAV T+2</option>
+<option value="44">SPAV T+3</option>
+<option value="45">SPAV T+4</option>
+<option value="46">SPAV T+5</option></select></htmltext>
+<valor>null</valor>
+<dato>1</dato>
+</elem>
+</formelements>

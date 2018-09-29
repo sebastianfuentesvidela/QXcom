@@ -1,0 +1,38 @@
+A:link
+{
+    TEXT-DECORATION: none
+}
+A:visited
+{
+    TEXT-DECORATION: none
+}
+A:hover
+{
+    COLOR: red;
+    TEXT-DECORATION: none
+}
+.chico { COLOR: #000000; BACKGROUND-COLOR: #ffffff;  text-align: center;
+	font-size: 9px;
+	font-family: arial;
+	}
+.chicox { BACKGROUND-COLOR: #eeeeee;  COLOR: #666666; text-align: center;
+	font-size: 9px;
+	font-family: arial;
+	}
+.hoydia {
+	font-size: 9px; text-align: center;
+	font-family: arial;
+	font-weight: 900;
+	color: red;
+	}
+.currentdia {
+	font-size: 9px; text-align: center;
+	font-family: arial;
+	font-weight: 900;
+	color: black;
+	background-color: lightblue;
+	}
+.ctitle { COLOR: #666666; BACKGROUND-COLOR: #eeeeee; FONT-WEIGHT: 900;
+ FONT-FAMILY: Helvetica Condensed Medium, Arial, ;
+    FONT-SIZE: 9px; text-align: center; }
+body {BACKGROUND-COLOR: #ffffff; }

@@ -1,0 +1,454 @@
+A.Ep
+{
+    COLOR: #ffffff;
+    FONT-FAMILY: Arial, Verdana, helvetica;
+    FONT-SIZE: 10px;
+    TEXT-DECORATION: none
+}
+A:hover:unknown
+{
+    COLOR: #ffffff;
+    FONT-FAMILY: Verdana, Arial, helvetica;
+    FONT-SIZE: 11px;
+    TEXT-DECORATION: underline
+}
+A
+{
+    COLOR: #538cc6;
+    FONT-FAMILY: Arial, Verdana, helvetica;
+    FONT-SIZE: 11px;
+    TEXT-DECORATION: underline
+}
+A:hover
+{
+    COLOR: #6699cc;
+    FONT-FAMILY: Arial, Verdana, helvetica;
+    FONT-SIZE: 10px;
+    TEXT-DECORATION: underline
+}
+INPUT
+{
+    BACKGROUND-COLOR: white;
+    COLOR: maroon;
+    FONT-FAMILY: Verdana, Arial, helvetica;
+    FONT-SIZE: 11px;
+    FONT-WEIGHT: normal
+}
+SELECT
+{
+    COLOR: maroon;
+    FONT-FAMILY: Verdana, Arial, helvetica;
+    FONT-SIZE: 11px;
+    FONT-WEIGHT: normal
+}
+BODY
+{
+    BACKGROUND-COLOR: white;
+    COLOR: mediumblue;
+    FONT-FAMILY: Verdana, Arial, helvetica;
+    FONT-SIZE: x-small
+}
+TD.Seccion
+{
+    BACKGROUND-COLOR: #6699cc;
+    BACKGROUND-REPEAT: no-repeat;
+    COLOR: #ffffff;
+    FONT-FAMILY: Verdana, Arial, helvetica;
+    FONT-SIZE: 11px;
+    FONT-STYLE: normal;
+    FONT-WEIGHT: bold;
+    HEIGHT: 20px
+}
+TD.SeccionLeft
+{
+    BACKGROUND-COLOR: #6699cc;
+    BACKGROUND-IMAGE: url(../images/gripblue.gif);
+    BACKGROUND-REPEAT: no-repeat;
+    WIDTH: 15px
+}
+TD.Titulo
+{
+    COLOR: #6699cc;
+    FONT-FAMILY: Verdana, Arial, helvetica;
+    FONT-SIZE: 16px;
+    FONT-WEIGHT: bold;
+    TEXT-ALIGN: center
+}
+TD.Titulo_sec
+{
+    COLOR: #6699cc;
+    FONT-FAMILY: Verdana, Arial, helvetica;
+    FONT-SIZE: 16px
+}
+TD.label
+{
+    COLOR: #3974ae;
+    FONT-FAMILY: Verdana, Arial, helvetica;
+    FONT-SIZE: 11px;
+    FONT-WEIGHT: normal;
+    HEIGHT: 30px
+}
+TD.PostData
+{
+    COLOR: #3974ae;
+    FONT-FAMILY: Verdana, Arial, helvetica;
+    FONT-SIZE: 10px;
+    FONT-WEIGHT: normal;
+    HEIGHT: 20px;
+    PADDING-LEFT: 5px
+}
+LABEL
+{
+    COLOR: #3974ae;
+    FONT-FAMILY: Verdana, Arial, helvetica;
+    FONT-SIZE: 10px;
+    FONT-WEIGHT: normal;
+    HEIGHT: 20px
+}
+TD.Mensaje
+{
+    COLOR: #679acd;
+    FONT-FAMILY: Verdana, Arial, helvetica;
+    FONT-SIZE: 11px;
+    FONT-WEIGHT: bold;
+    TEXT-ALIGN: center;
+    TEXT-INDENT: 5px
+}
+TD.space
+{
+    FONT-FAMILY: Verdana, Arial, helvetica;
+    FONT-SIZE: 5px;
+    widht: 5px
+}
+HR.Linea
+{
+    COLOR: #ffd0b9;
+    FONT-FAMILY: Verdana, Arial, helvetica;
+    LEFT: 80px;
+    MARGIN-LEFT: 15px;
+    MARGIN-TOP: 0px;
+    PADDING-TOP: 0px;
+    POSITION: static;
+    TOP: 5px
+}
+TD.ContenidoEncaGrilla_peq
+{
+    BACKGROUND-COLOR: #3974ae;
+    BORDER-BOTTOM: #538cc6 1pt solid;
+    BORDER-LEFT: #538cc6 1pt solid;
+    BORDER-RIGHT: #538cc6 1pt solid;
+    BORDER-TOP: #538cc6 1pt solid;
+    COLOR: #ffffff;
+    FONT-FAMILY: Verdana, Arial, helvetica;
+    FONT-SIZE: 9px;
+    FONT-WEIGHT: bold;
+    HEIGHT: 20px;
+    MARGIN: 0px;
+    PADDING-BOTTOM: 1px;
+    PADDING-LEFT: 0px;
+    PADDING-RIGHT: 0px;
+    PADDING-TOP: 0px;
+    TEXT-ALIGN: center
+}
+TD.ContenidoEncaGrilla_peq1
+{
+    BACKGROUND-COLOR: #3974ae;
+    BORDER-BOTTOM: #538cc6 1pt solid;
+    BORDER-LEFT: #538cc6 1pt solid;
+    BORDER-RIGHT: #538cc6 1pt solid;
+    BORDER-TOP: #538cc6 1pt solid;
+    COLOR: #ffffff;
+    FONT-FAMILY: Verdana, Arial, helvetica;
+    FONT-SIZE: 10px;
+    FONT-WEIGHT: bold;
+    HEIGHT: 40px;
+    MARGIN: 0px;
+    PADDING-BOTTOM: 1px;
+    PADDING-LEFT: 0px;
+    PADDING-RIGHT: 0px;
+    PADDING-TOP: 0px;
+    TEXT-ALIGN: center
+}
+TD.ContenidoEncaGrilla
+{
+    BACKGROUND-COLOR: #3974ae;
+    BORDER-BOTTOM: #538cc6 1pt solid;
+    BORDER-LEFT: #538cc6 1pt solid;
+    BORDER-RIGHT: #538cc6 1pt solid;
+    BORDER-TOP: #538cc6 1pt solid;
+    COLOR: #ffffff;
+    FONT-FAMILY: Verdana, Arial, helvetica;
+    FONT-SIZE: 10px;
+    FONT-WEIGHT: bold;
+    HEIGHT: 20px;
+    MARGIN: 0px;
+    PADDING-BOTTOM: 1px;
+    PADDING-LEFT: 0px;
+    PADDING-RIGHT: 0px;
+    PADDING-TOP: 0px;
+    TEXT-ALIGN: center
+}
+TD.endTable
+{
+    BACKGROUND-IMAGE: url(../images/Tit_Caption.gif);
+    BACKGROUND-POSITION: center top
+}
+TD.ContenidoGrilla
+{
+    BACKGROUND-COLOR: #f5f5f5;
+    BORDER-BOTTOM: #538cc6 1pt solid;
+    BORDER-LEFT: #538cc6 1pt solid;
+    BORDER-RIGHT: #538cc6 1pt solid;
+    COLOR: #3974ae;
+    FONT-FAMILY: Verdana, Arial, helvetica;
+    FONT-SIZE: 10px;
+    FONT-WEIGHT: normal;
+    HEIGHT: 20px;
+    MARGIN: 0px;
+    PADDING-BOTTOM: 0px;
+    PADDING-LEFT: 5px;
+    PADDING-RIGHT: 5px;
+    PADDING-TOP: 0px
+}
+TD.ContenidoGrillaCADUCADA
+{
+    BACKGROUND-COLOR: salmon;
+    BORDER-BOTTOM: #538cc6 1pt solid;
+    BORDER-LEFT: #538cc6 1pt solid;
+    BORDER-RIGHT: #538cc6 1pt solid;
+    COLOR: orangered;
+    FONT-FAMILY: Verdana, Arial, helvetica;
+    FONT-SIZE: 10px;
+    FONT-WEIGHT: normal;
+    HEIGHT: 20px;
+    MARGIN: 0px;
+    PADDING-BOTTOM: 0px;
+    PADDING-LEFT: 5px;
+    PADDING-RIGHT: 5px;
+    PADDING-TOP: 0px
+    a:link { color: red } 
+
+}
+TD.ContenidoGrillaCADUCADA2
+{
+    BACKGROUND-COLOR: salmon;
+    BORDER-BOTTOM: #538cc6 1pt solid;
+    BORDER-LEFT: #538cc6 1pt solid;
+    BORDER-RIGHT: #538cc6 1pt solid;
+    COLOR: #000000;
+    FONT-FAMILY: Verdana, Arial, helvetica;
+    FONT-SIZE: 10px;
+    FONT-WEIGHT: bold;
+    HEIGHT: 20px;
+    MARGIN: 0px;
+    PADDING-BOTTOM: 0px;
+    PADDING-LEFT: 0px;
+    PADDING-RIGHT: 0px;
+    PADDING-TOP: 0px
+    a:link { color: red } 
+
+}
+TD.ContenidoGrillaMarc
+{
+    BACKGROUND-COLOR: #fffccc;
+    BORDER-BOTTOM: #538cc6 1pt solid;
+    BORDER-LEFT: #538cc6 1pt solid;
+    BORDER-RIGHT: #538cc6 1pt solid;
+    COLOR: #3974ae;
+    FONT-FAMILY: Verdana, Arial, helvetica;
+    FONT-SIZE: 10px;
+    FONT-WEIGHT: bold;
+    HEIGHT: 20px;
+    MARGIN: 0px;
+    PADDING-BOTTOM: 0px;
+    PADDING-LEFT: 0px;
+    PADDING-RIGHT: 0px;
+    PADDING-TOP: 0px
+}
+TD.ContenidoGrillaToT
+{
+    BACKGROUND-COLOR: #cccccc;
+    BORDER-BOTTOM: #538cc6 1pt solid;
+    BORDER-LEFT: #538cc6 1pt solid;
+    BORDER-RIGHT: #538cc6 1pt solid;
+    COLOR: #3974ae;
+    FONT-FAMILY: Verdana, Arial, helvetica;
+    FONT-SIZE: 10px;
+    FONT-WEIGHT: bold;
+    HEIGHT: 20px;
+    MARGIN: 0px;
+    PADDING-BOTTOM: 0px;
+    PADDING-LEFT: 0px;
+    PADDING-RIGHT: 0px;
+    PADDING-TOP: 0px
+}
+TD.ContenidoGrillaSel1
+{
+    BACKGROUND-COLOR: #fffccc;
+    BORDER-BOTTOM: #538cc6 1pt solid;
+    BORDER-LEFT: #538cc6 1pt solid;
+    BORDER-RIGHT: #538cc6 1pt solid;
+    COLOR: #2f6091;
+    FONT-FAMILY: Verdana, Arial, helvetica;
+    FONT-SIZE: 10px;
+    FONT-WEIGHT: normal;
+    HEIGHT: 20px;
+    MARGIN: 0px;
+    PADDING-BOTTOM: 0px;
+    PADDING-LEFT: 5px;
+    PADDING-RIGHT: 5px;
+    PADDING-TOP: 0px
+}
+TD.ContenidoGrillaSel
+{
+    BACKGROUND-COLOR: #f1f1f1;
+    BORDER-BOTTOM: #538cc6 1pt solid;
+    BORDER-LEFT: #538cc6 1pt solid;
+    BORDER-RIGHT: #538cc6 1pt solid;
+    COLOR: #3974ae;
+    FONT-FAMILY: Verdana, Arial, helvetica;
+    FONT-SIZE: 10px;
+    FONT-WEIGHT: bold;
+    HEIGHT: 20px;
+    MARGIN: 0px;
+    PADDING-BOTTOM: 0px;
+    PADDING-LEFT: 0px;
+    PADDING-RIGHT: 0px;
+    PADDING-TOP: 0px
+}
+TABLE.TablaForm
+{
+    BACKGROUND-COLOR: #f5f5f5;
+    BORDER-BOTTOM: cornflowerblue 1pt solid;
+    BORDER-LEFT: cornflowerblue 1pt solid;
+    BORDER-RIGHT: cornflowerblue 1pt solid;
+    BORDER-TOP: cornflowerblue 1pt solid;
+    MARGIN: 0px;
+    PADDING-BOTTOM: 0px;
+    PADDING-LEFT: 0px;
+    PADDING-RIGHT: 0px;
+    PADDING-TOP: 0px
+}
+TD.Totales
+{
+    BACKGROUND-COLOR: #3974ae;
+    BORDER-BOTTOM: #538cc6 1pt solid;
+    BORDER-LEFT: #538cc6 1pt solid;
+    BORDER-RIGHT: #538cc6 1pt solid;
+    BORDER-TOP: #538cc6 1pt solid;
+    COLOR: #ffffff;
+    FONT-FAMILY: Verdana, Arial, helvetica;
+    FONT-SIZE: 11px;
+    FONT-WEIGHT: bold;
+    HEIGHT: 20px;
+    MARGIN: 0px;
+    PADDING-BOTTOM: 1px;
+    PADDING-LEFT: 0px;
+    PADDING-RIGHT: 0px;
+    PADDING-TOP: 0px
+}
+TD.contenidopag1
+{
+    BACKGROUND-IMAGE: url(../images/Tit_Caption.gif);
+    BACKGROUND-POSITION: center top;
+    COLOR: #ffff99;
+    FONT-SIZE: 11px;
+    FONT-WEIGHT: normal;
+    HEIGHT: 20px;
+    MARGIN: 0px;
+    PADDING-BOTTOM: 0px;
+    PADDING-LEFT: 5px;
+    PADDING-RIGHT: 5px;
+    PADDING-TOP: 0px
+}
+TD.contenidopag2
+{
+    BACKGROUND-IMAGE: url(../images/Tit_Caption.gif);
+    BACKGROUND-POSITION: center top;
+    COLOR: #ffff99;
+    FONT-SIZE: 11px;
+    FONT-WEIGHT: bold;
+    HEIGHT: 20px;
+    MARGIN: 0px;
+    PADDING-BOTTOM: 0px;
+    PADDING-LEFT: 5px;
+    PADDING-RIGHT: 5px;
+    PADDING-TOP: 0px
+}
+TD.ContenidoGrillaDP
+{
+    BACKGROUND-COLOR: #f5f5f5;
+    BORDER-BOTTOM: #538cc6 1pt solid;
+    BORDER-LEFT: #538cc6 1pt solid;
+    BORDER-RIGHT: #538cc6 1pt solid;
+    COLOR: #3974ae;
+    FONT-FAMILY: Verdana, Arial, helvetica;
+    FONT-SIZE: 10px;
+    FONT-WEIGHT: normal;
+    HEIGHT: 20px;
+    MARGIN: 0px;
+    PADDING-BOTTOM: 0px;
+    PADDING-LEFT: 5px;
+    PADDING-RIGHT: 5px;
+    PADDING-TOP: 0px
+}
+TABLE.TablaForm2
+{
+    BACKGROUND-COLOR: #f5f5f5;
+    BORDER-BOTTOM: cornflowerblue 1pt solid;
+    BORDER-LEFT: cornflowerblue 1pt solid;
+    BORDER-RIGHT: cornflowerblue 1pt solid;
+    BORDER-TOP: cornflowerblue 1pt solid;
+    MARGIN: 0px;
+    PADDING-BOTTOM: 2px;
+    PADDING-LEFT: 2px;
+    PADDING-RIGHT: 2px;
+    PADDING-TOP: 2px
+}
+.isr
+{
+}
+TD.ContenidoEncaGrilla2
+{
+    BORDER-BOTTOM: #538cc6 1pt solid;
+    BORDER-LEFT: #538cc6 1pt solid;
+    BORDER-RIGHT: #538cc6 1pt solid;
+    BORDER-TOP: #538cc6 1pt solid;
+    COLOR: black;
+    FONT-FAMILY: Arial, Verdana;
+    FONT-SIZE: 10px;
+    FONT-WEIGHT: bold;
+    MARGIN: 0px;
+    PADDING-BOTTOM: 1px;
+    PADDING-LEFT: 0px;
+    PADDING-RIGHT: 0px;
+    PADDING-TOP: 0px
+}
+TD.ContenidoEncaGrillaLateral_1
+{
+    BACKGROUND-COLOR: #3974ae;
+    BORDER-BOTTOM: #538cc6 1pt solid;
+    BORDER-LEFT: #538cc6 1pt solid;
+    BORDER-RIGHT: #538cc6 1pt;
+    BORDER-TOP: #538cc6 1pt solid;
+    COLOR: #3974ae;
+    MARGIN: 0px;
+    PADDING-BOTTOM: 1px;
+    PADDING-LEFT: 0px;
+    PADDING-RIGHT: 0px;
+    PADDING-TOP: 0px
+}
+TD.ContenidoEncaGrillaLateral_2
+{
+    BACKGROUND-COLOR: #3974ae;
+    BORDER-BOTTOM: #538cc6 1pt solid;
+    BORDER-LEFT: #538cc6 1pt;
+    BORDER-RIGHT: #538cc6 1pt solid;
+    BORDER-TOP: #538cc6 1pt solid;
+    COLOR: #3974ae;
+    MARGIN: 0px;
+    PADDING-BOTTOM: 1px;
+    PADDING-LEFT: 0px;
+    PADDING-RIGHT: 0px;
+    PADDING-TOP: 0px
+}

@@ -1,0 +1,2 @@
+DELETE FROM tbop_doc
+SET IDENTITY_INSERT tbop_doc  ON

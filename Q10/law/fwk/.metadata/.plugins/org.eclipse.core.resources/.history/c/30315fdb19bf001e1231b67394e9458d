@@ -1,0 +1,52 @@
+
+public class XML1Formatter implements XMLFormat {
+
+	@Override
+	public void AddColDef(String name, String type) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void AddDataRow() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void CloseResultSet() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void CloseService() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void OpenResultSet(String name) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void OpenService(String name, String retFormat, String caching) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void Parameter(String name) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void ResultValue(String name, String value) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

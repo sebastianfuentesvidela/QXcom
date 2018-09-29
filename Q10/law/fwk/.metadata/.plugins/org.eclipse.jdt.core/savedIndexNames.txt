@@ -1,0 +1,17 @@
+INDEX VERSION 1.125+D:\J2EE\fwk\.metadata\.plugins\org.eclipse.jdt.core
+1369624336.index
+2454739286.index
+1811223372.index
+75390388.index
+4119286591.index
+3943197906.index
+876042245.index
+662326125.index
+2832004357.index
+12563842.index
+212956681.index
+4056065774.index
+927406735.index
+1760830407.index
+3292561270.index
+858238573.index

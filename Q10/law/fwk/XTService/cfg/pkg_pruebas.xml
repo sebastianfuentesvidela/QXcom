@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<package name="pruebas">
+	
+	<service name="TEST_SELECT" type="SQL" cacheable="true">
+		
+		<datasource name="SQL_1" /><param name="tipo_usuario" type="string" length="30"/>
+		<sql>select * from usuarios where tipo_usuario=@tipo_usuario;select count(*) as numero from usuarios where tipo_usuario=@tipo_usuario</sql>
+	</service>
+
+	<service name="TEST_INSERT" type="SQL">
+		<datasource name="SQL_1"/>
+		<param name="rut" type="string" length="15"/>
+		<param name="nombre" type="string" length="50"/>
+		<param name="apellido" type="string" length="50"/>
+		<param name="fecha_nac" type="date"/>
+		<param name="tipo_usuario" type="string" length="30"/>
+		<sql>insert into usuarios (rut,nombre,apellido,fecha_nac,tipo_usuario) values ( @rut,@nombre,@apellido,@fecha_nac,@tipo_usuario )</sql>
+	</service>
+
+	<service name="TEST_UPDATE" type="SQL">
+		<datasource name="SQL_1"/>
+		<param name="rut" type="string" length="15"  key="true"/>
+		<param name="nombre" type="string" length="50"/>
+		<param name="apellido" type="string" length="50"/>
+		<param name="fecha_nac" type="date"/>
+		<param name="ptipo_usuario" type="string" length="30"/>
+		<sql>update usuarios
+			set nombre = @nombre,
+			apellido = @apellido,
+			fecha_nac = @fecha_nac,
+			tipo_usuario = @tipo_usuario
+			where rut = @rut</sql>
+	</service>
+		<service name="TEST_SP" type="SQL">
+		<datasource name="SQL_1"/>
+		<param name="rut" type="string" length="15"  key="true"/>
+		<sql>exec sp_test @rut</sql>
+	</service>
+</package>
